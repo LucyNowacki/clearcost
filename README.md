@@ -1,5 +1,9 @@
 # Clearcost — Energy Contractor Cost Reconciliation
 
+[Open the portfolio demo](https://lucynowacki.github.io/clearcost/)
+
+Source code: `main` branch. Published static files: `gh-pages` branch.
+
 A portfolio demo by Lucy Nowacki, using fictional energy contractor invoices. Includes a local Python/SQLite application and a browser-only GitHub Pages edition. Open
 `fuse.code-workspace` in VS Code. No hosting, Google Sheets connection or LLM is
 required for this stage.
@@ -208,6 +212,6 @@ python -m http.server 8878 --bind 127.0.0.1 --directory dist
 
 Open `http://localhost:8878/clearcost/`. This exports synthetic examples and saved model drafts without local review history or live model calls. Reviews remain in the visitor's browser, shared across its tabs, and can be cleared using **Reset demo**. A different browser/device starts independently. The local Python dashboard and its SQLite reviews remain separate.
 
-See [local browser-demo validation](docs/STATIC_DEMO_TEST_REPORT.md) for checks and limits. GitHub publishing is not yet configured.
+See [local browser-demo validation](docs/STATIC_DEMO_TEST_REPORT.md) for checks and limits. GitHub Pages publishes the root of the `gh-pages` branch.
 
 Saved, synthetic extraction examples live in `Data/extraction_examples/`. Their source paths are relative so a fresh clone can reproduce the demo without a model call. Local extraction outputs, when present, take precedence over the same example.
