@@ -1,0 +1,17 @@
+data_classification,invoice_id,invoice_date,period_start,period_end,contract_id,contractor,line_id,line_number,job_id,service_date,service_type,quantity,unit_rate_pence,line_amount_pence,currency,tax_basis
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-001,1,C05-JOB-001,2026-08-01,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-002,2,C05-JOB-002,2026-08-02,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-003,3,C05-JOB-003,2026-08-03,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-004,4,C05-JOB-004,2026-08-04,meter_diagnostic_visit,1,6200,6200,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-005,5,C05-JOB-005,2026-08-05,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-006,6,C05-JOB-006,2026-08-06,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-007,7,C05-JOB-007,2026-08-07,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-008,8,C05-JOB-008,2026-08-08,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-009,9,C05-JOB-009,2026-08-09,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-010,10,C05-JOB-010,2026-08-10,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-011,11,C05-JOB-011,2026-08-11,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-012,12,C05-JOB-012,2026-08-12,meter_diagnostic_visit,1,7000,7000,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-013,13,C05-JOB-013,2026-08-13,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-014,14,C05-JOB-014,2026-08-14,meter_diagnostic_visit,1,1000,1000,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-015,15,C05-JOB-015,2026-08-15,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-005,2026-09-01,2026-08-01,2026-08-31,CTR-005,Meadow Meter Support,C05-LINE-016,16,C05-JOB-001,2026-08-01,meter_diagnostic_visit,1,5500,5500,GBP,exclusive_of_vat

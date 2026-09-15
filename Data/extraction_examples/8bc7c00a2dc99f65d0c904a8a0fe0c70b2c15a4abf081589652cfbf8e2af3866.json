@@ -1,0 +1,85 @@
+{
+  "status": "draft_needs_human_review",
+  "model": "gpt-5.3-codex-spark",
+  "version": "spark-contract-v1",
+  "provider": "codex_chatgpt",
+  "source": "Data/Contracts/03_harbour_meter_testing/contract.pdf",
+  "source_sha256": "f87a3dbc937523d929e2b452c46859fd72bc92098012b54d148b308dfe1c7181",
+  "created_at": "2026-09-14T18:35:57.304981+00:00",
+  "extraction": {
+    "terms": [
+      {
+        "field": "contract_id",
+        "value": "CTR-004 (version 1.0 stated in same header line).",
+        "page": 1,
+        "quote": "Contract: CTR-004   Version: 1.0",
+        "uncertainty": null
+      },
+      {
+        "field": "standard_rate",
+        "value": "GBP 75.00 per completed visit before VAT, with application noted as subject to specific approval in clause 5.",
+        "page": 1,
+        "quote": "Each completed visit costs GBP 75.00 before VAT, subject to the\nspecific approval in clause 5.",
+        "uncertainty": null
+      },
+      {
+        "field": "cancellation_charge",
+        "value": "GBP 0.00 fixed charge for a cancelled visit.",
+        "page": 1,
+        "quote": "A cancelled visit has a fixed charge of GBP 0.00.",
+        "uncertainty": null
+      },
+      {
+        "field": "incomplete_visit_charge",
+        "value": "No charge for incomplete visits.",
+        "page": 1,
+        "quote": "Incomplete visits have no charge.",
+        "uncertainty": null
+      },
+      {
+        "field": "currency_and_tax",
+        "value": "All amounts are GBP before VAT, with CSV monetary values represented as integer pence; VAT, gross payable totals and payment processing are excluded.",
+        "page": 1,
+        "quote": "All amounts are GBP before VAT. CSV monetary values are integer\npence.",
+        "uncertainty": null
+      },
+      {
+        "field": "effective_period",
+        "value": "Effective period is 1-31 August 2026 inclusive.",
+        "page": 1,
+        "quote": "Effective: 1-31 August 2026, inclusive.",
+        "uncertainty": null
+      },
+      {
+        "field": "completion_evidence",
+        "value": "For completion evidence, the service record must identify job, service date and status; completed visits must include a completion reference; missing records require further evidence and must not be treated as zero-cost work.",
+        "page": 1,
+        "quote": "The service record must identify the job, service date and status. Completed visits require a completion\nreference.",
+        "uncertainty": null
+      },
+      {
+        "field": "duplicate_policy",
+        "value": "Billing logic requires each job to appear once only; for duplicates keep the earliest invoice line and flag later charges for the same job.",
+        "page": 1,
+        "quote": "Each job may appear once only. For duplicate reconciliation, retain the earliest invoice line number and flag later\ncharges for the same job.",
+        "uncertainty": null
+      },
+      {
+        "field": "supplements_and_exceptions",
+        "value": "Specific written approval applies a GBP 25.00 supplement for only completed job C04-JOB-012, making that job total GBP 100.00.",
+        "page": 1,
+        "quote": "Approval APP-004-012 authorises a supplement of GBP 25.00 for completed job C04-JOB-012 only, giving an\nagreed total of GBP 100.00.",
+        "uncertainty": null
+      }
+    ],
+    "warnings": [
+      "The standard rate is conditional: clause 5 provides a job-specific supplement exception for C04-JOB-012.",
+      "Invoice scope includes only services dated in August 2026 (also aligned with effective period).",
+      "Monthly invoice review is required; flagged amounts require investigation and are not treated as realised savings.",
+      "Document is synthetic demonstration data and states it is not a real agreement or payment authorisation.",
+      "No previous invoices exist for this scenario; all quantities are one.",
+      "Incomplete visits are explicitly zero charge, but the text states they must still be handled through the evidence/record checks, which is a process condition rather than payment confirmation."
+    ]
+  },
+  "validation": "Field structure and quoted text checked; meaning requires human review."
+}

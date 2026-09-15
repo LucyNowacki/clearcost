@@ -1,0 +1,2506 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "Synthetic demonstration data",
+  "purpose": "TEST ORACLE ONLY. Do not supply this file to extraction or reconciliation as input.",
+  "scenario_id": "meter-maintenance-august-2026-v1",
+  "currency": "GBP",
+  "money_unit": "integer_pence",
+  "tax_basis": "exclusive_of_vat",
+  "source_files": [
+    "contract.pdf",
+    "visits.csv",
+    "invoice_lines.csv",
+    "invoice.pdf"
+  ],
+  "contract_rules": {
+    "contract_id": "CTR-001",
+    "version": "1.0",
+    "effective_from": "2026-08-01",
+    "effective_to": "2026-08-31",
+    "standard_visit_rate_pence": 5000,
+    "chargeable_status": "completed",
+    "completion_reference_required": true,
+    "cancelled_chargeable": false,
+    "incomplete_chargeable": false,
+    "additional_approvals": [],
+    "missing_visit_record_policy": "unverified_pending_evidence",
+    "duplicate_policy": "first occurrence by line_number is retained",
+    "prior_period_invoices": []
+  },
+  "expected_summary": {
+    "visit_count": 108,
+    "completed_visits": 100,
+    "cancelled_visits": 5,
+    "incomplete_visits": 3,
+    "invoice_line_count": 106,
+    "matched_line_count": 98,
+    "flagged_line_count": 8,
+    "billed_total_pence": 532000,
+    "expected_total_pence": 500000,
+    "discrepancy_total_pence": 32000,
+    "realised_savings_pence": 0,
+    "findings_by_type": {
+      "rate_mismatch": {
+        "count": 2,
+        "discrepancy_pence": 2000
+      },
+      "non_chargeable_cancelled": {
+        "count": 5,
+        "discrepancy_pence": 25000
+      },
+      "duplicate_job": {
+        "count": 1,
+        "discrepancy_pence": 5000
+      }
+    }
+  },
+  "unbilled_non_chargeable_job_ids": [
+    "JOB-106",
+    "JOB-107",
+    "JOB-108"
+  ],
+  "scenario_coverage": {
+    "included": [
+      "correct charges",
+      "incorrect rates",
+      "cancelled visits billed",
+      "duplicate job billed",
+      "unbilled incomplete visits"
+    ],
+    "not_included": [
+      "missing service records",
+      "approved price changes",
+      "VAT calculations",
+      "multiple contracts",
+      "prior period duplicates"
+    ]
+  },
+  "expected_lines": [
+    {
+      "line_id": "LINE-001",
+      "job_id": "JOB-001",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-001"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-002",
+      "job_id": "JOB-002",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-002"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-003",
+      "job_id": "JOB-003",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-003"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-004",
+      "job_id": "JOB-004",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-004"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-005",
+      "job_id": "JOB-005",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-005"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-006",
+      "job_id": "JOB-006",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-006"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-007",
+      "job_id": "JOB-007",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-007"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-008",
+      "job_id": "JOB-008",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-008"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-009",
+      "job_id": "JOB-009",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-009"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-010",
+      "job_id": "JOB-010",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-010"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-011",
+      "job_id": "JOB-011",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-011"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-012",
+      "job_id": "JOB-012",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-012"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-013",
+      "job_id": "JOB-013",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-013"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-014",
+      "job_id": "JOB-014",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-014"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-015",
+      "job_id": "JOB-015",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-015"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-016",
+      "job_id": "JOB-016",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-016"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-017",
+      "job_id": "JOB-017",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-017"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-018",
+      "job_id": "JOB-018",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-018"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-019",
+      "job_id": "JOB-019",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-019"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-020",
+      "job_id": "JOB-020",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-020"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-021",
+      "job_id": "JOB-021",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-021"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-022",
+      "job_id": "JOB-022",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-022"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-023",
+      "job_id": "JOB-023",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-023"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-024",
+      "job_id": "JOB-024",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-024"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-025",
+      "job_id": "JOB-025",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-025"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-026",
+      "job_id": "JOB-026",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-026"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-027",
+      "job_id": "JOB-027",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-027"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-028",
+      "job_id": "JOB-028",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-028"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-029",
+      "job_id": "JOB-029",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-029"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-030",
+      "job_id": "JOB-030",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-030"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-031",
+      "job_id": "JOB-031",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-031"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-032",
+      "job_id": "JOB-032",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-032"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-033",
+      "job_id": "JOB-033",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-033"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-034",
+      "job_id": "JOB-034",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-034"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-035",
+      "job_id": "JOB-035",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-035"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-036",
+      "job_id": "JOB-036",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-036"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-037",
+      "job_id": "JOB-037",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-037"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-038",
+      "job_id": "JOB-038",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-038"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-039",
+      "job_id": "JOB-039",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-039"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-040",
+      "job_id": "JOB-040",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-040"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-041",
+      "job_id": "JOB-041",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-041"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-042",
+      "job_id": "JOB-042",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-042"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-043",
+      "job_id": "JOB-043",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-043"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-044",
+      "job_id": "JOB-044",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-044"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-045",
+      "job_id": "JOB-045",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-045"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-046",
+      "job_id": "JOB-046",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-046"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-047",
+      "job_id": "JOB-047",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-047"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-048",
+      "job_id": "JOB-048",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-048"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-049",
+      "job_id": "JOB-049",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-049"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-050",
+      "job_id": "JOB-050",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-050"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-051",
+      "job_id": "JOB-051",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-051"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-052",
+      "job_id": "JOB-052",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-052"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-053",
+      "job_id": "JOB-053",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-053"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-054",
+      "job_id": "JOB-054",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-054"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-055",
+      "job_id": "JOB-055",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-055"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-056",
+      "job_id": "JOB-056",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-056"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-057",
+      "job_id": "JOB-057",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-057"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-058",
+      "job_id": "JOB-058",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-058"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-059",
+      "job_id": "JOB-059",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-059"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-060",
+      "job_id": "JOB-060",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-060"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-061",
+      "job_id": "JOB-061",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-061"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-062",
+      "job_id": "JOB-062",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-062"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-063",
+      "job_id": "JOB-063",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-063"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-064",
+      "job_id": "JOB-064",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-064"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-065",
+      "job_id": "JOB-065",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-065"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-066",
+      "job_id": "JOB-066",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-066"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-067",
+      "job_id": "JOB-067",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-067"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-068",
+      "job_id": "JOB-068",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-068"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-069",
+      "job_id": "JOB-069",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-069"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-070",
+      "job_id": "JOB-070",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-070"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-071",
+      "job_id": "JOB-071",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-071"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-072",
+      "job_id": "JOB-072",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-072"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-073",
+      "job_id": "JOB-073",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-073"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-074",
+      "job_id": "JOB-074",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-074"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-075",
+      "job_id": "JOB-075",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-075"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-076",
+      "job_id": "JOB-076",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-076"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-077",
+      "job_id": "JOB-077",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-077"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-078",
+      "job_id": "JOB-078",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-078"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-079",
+      "job_id": "JOB-079",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-079"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-080",
+      "job_id": "JOB-080",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-080"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-081",
+      "job_id": "JOB-081",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-081"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-082",
+      "job_id": "JOB-082",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-082"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-083",
+      "job_id": "JOB-083",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-083"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-084",
+      "job_id": "JOB-084",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-084"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-085",
+      "job_id": "JOB-085",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-085"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-086",
+      "job_id": "JOB-086",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-086"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-087",
+      "job_id": "JOB-087",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-087"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-088",
+      "job_id": "JOB-088",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-088"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-089",
+      "job_id": "JOB-089",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-089"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-090",
+      "job_id": "JOB-090",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-090"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-091",
+      "job_id": "JOB-091",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-091"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-092",
+      "job_id": "JOB-092",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-092"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-093",
+      "job_id": "JOB-093",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-093"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-094",
+      "job_id": "JOB-094",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-094"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-095",
+      "job_id": "JOB-095",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-095"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-096",
+      "job_id": "JOB-096",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-096"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-097",
+      "job_id": "JOB-097",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-097"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-098",
+      "job_id": "JOB-098",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 5000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "3",
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-098"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit billed once at the agreed rate."
+    },
+    {
+      "line_id": "LINE-099",
+      "job_id": "JOB-099",
+      "classification": "rate_mismatch",
+      "requires_review": true,
+      "billed_pence": 6000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 1000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-099"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Billed GBP 60.00; agreed rate is GBP 50.00, with no approved amendment."
+    },
+    {
+      "line_id": "LINE-100",
+      "job_id": "JOB-100",
+      "classification": "rate_mismatch",
+      "requires_review": true,
+      "billed_pence": 6000,
+      "expected_pence": 5000,
+      "discrepancy_pence": 1000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-100"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Billed GBP 60.00; agreed rate is GBP 50.00, with no approved amendment."
+    },
+    {
+      "line_id": "LINE-101",
+      "job_id": "JOB-101",
+      "classification": "non_chargeable_cancelled",
+      "requires_review": true,
+      "billed_pence": 5000,
+      "expected_pence": 0,
+      "discrepancy_pence": 5000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "3"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-101"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Service record is cancelled and is not chargeable."
+    },
+    {
+      "line_id": "LINE-102",
+      "job_id": "JOB-102",
+      "classification": "non_chargeable_cancelled",
+      "requires_review": true,
+      "billed_pence": 5000,
+      "expected_pence": 0,
+      "discrepancy_pence": 5000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "3"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-102"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Service record is cancelled and is not chargeable."
+    },
+    {
+      "line_id": "LINE-103",
+      "job_id": "JOB-103",
+      "classification": "non_chargeable_cancelled",
+      "requires_review": true,
+      "billed_pence": 5000,
+      "expected_pence": 0,
+      "discrepancy_pence": 5000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "3"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-103"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Service record is cancelled and is not chargeable."
+    },
+    {
+      "line_id": "LINE-104",
+      "job_id": "JOB-104",
+      "classification": "non_chargeable_cancelled",
+      "requires_review": true,
+      "billed_pence": 5000,
+      "expected_pence": 0,
+      "discrepancy_pence": 5000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "3"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-104"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Service record is cancelled and is not chargeable."
+    },
+    {
+      "line_id": "LINE-105",
+      "job_id": "JOB-105",
+      "classification": "non_chargeable_cancelled",
+      "requires_review": true,
+      "billed_pence": 5000,
+      "expected_pence": 0,
+      "discrepancy_pence": 5000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "3"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-105"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Service record is cancelled and is not chargeable."
+    },
+    {
+      "line_id": "LINE-106",
+      "job_id": "JOB-001",
+      "classification": "duplicate_job",
+      "requires_review": true,
+      "billed_pence": 5000,
+      "expected_pence": 0,
+      "discrepancy_pence": 5000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "JOB-001"
+      },
+      "related_invoice_line_ids": [
+        "LINE-001"
+      ],
+      "reason": "JOB-001 already appears on LINE-001. Only one charge is allowed."
+    }
+  ]
+}

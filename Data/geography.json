@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "description": "Fictional service-area assignments and approximate illustrative city coordinates. Not customer premises, contractual territories or actual contractor locations.",
+  "contracts": [
+    {
+      "contract_id": "CTR-002",
+      "contractor": "Northbank Meter Services",
+      "demo_service_region": "South East",
+      "locations": [
+        {
+          "site_id": "CTR-002-AREA-1",
+          "label": "London demo area",
+          "city": "London",
+          "latitude": 51.5,
+          "longitude": -0.12,
+          "job_ids": [
+            "C02-JOB-001",
+            "C02-JOB-004",
+            "C02-JOB-007",
+            "C02-JOB-010",
+            "C02-JOB-013"
+          ]
+        },
+        {
+          "site_id": "CTR-002-AREA-2",
+          "label": "Reading demo area",
+          "city": "Reading",
+          "latitude": 51.45,
+          "longitude": -0.97,
+          "job_ids": [
+            "C02-JOB-002",
+            "C02-JOB-005",
+            "C02-JOB-008",
+            "C02-JOB-011",
+            "C02-JOB-014"
+          ]
+        },
+        {
+          "site_id": "CTR-002-AREA-3",
+          "label": "Brighton demo area",
+          "city": "Brighton",
+          "latitude": 50.82,
+          "longitude": -0.14,
+          "job_ids": [
+            "C02-JOB-003",
+            "C02-JOB-006",
+            "C02-JOB-009",
+            "C02-JOB-012",
+            "C02-JOB-015"
+          ]
+        }
+      ]
+    },
+    {
+      "contract_id": "CTR-003",
+      "contractor": "Cedar Meter Maintenance",
+      "demo_service_region": "Midlands",
+      "locations": [
+        {
+          "site_id": "CTR-003-AREA-1",
+          "label": "Birmingham demo area",
+          "city": "Birmingham",
+          "latitude": 52.49,
+          "longitude": -1.9,
+          "job_ids": [
+            "C03-JOB-001",
+            "C03-JOB-004",
+            "C03-JOB-007",
+            "C03-JOB-010",
+            "C03-JOB-013"
+          ]
+        },
+        {
+          "site_id": "CTR-003-AREA-2",
+          "label": "Coventry demo area",
+          "city": "Coventry",
+          "latitude": 52.41,
+          "longitude": -1.51,
+          "job_ids": [
+            "C03-JOB-002",
+            "C03-JOB-005",
+            "C03-JOB-008",
+            "C03-JOB-011",
+            "C03-JOB-014"
+          ]
+        },
+        {
+          "site_id": "CTR-003-AREA-3",
+          "label": "Leicester demo area",
+          "city": "Leicester",
+          "latitude": 52.64,
+          "longitude": -1.13,
+          "job_ids": [
+            "C03-JOB-003",
+            "C03-JOB-006",
+            "C03-JOB-009",
+            "C03-JOB-012",
+            "C03-JOB-015"
+          ]
+        }
+      ]
+    },
+    {
+      "contract_id": "CTR-004",
+      "contractor": "Harbour Meter Testing",
+      "demo_service_region": "South West",
+      "locations": [
+        {
+          "site_id": "CTR-004-AREA-1",
+          "label": "Bristol demo area",
+          "city": "Bristol",
+          "latitude": 51.45,
+          "longitude": -2.59,
+          "job_ids": [
+            "C04-JOB-001",
+            "C04-JOB-004",
+            "C04-JOB-007",
+            "C04-JOB-010",
+            "C04-JOB-013"
+          ]
+        },
+        {
+          "site_id": "CTR-004-AREA-2",
+          "label": "Exeter demo area",
+          "city": "Exeter",
+          "latitude": 50.72,
+          "longitude": -3.53,
+          "job_ids": [
+            "C04-JOB-002",
+            "C04-JOB-005",
+            "C04-JOB-008",
+            "C04-JOB-011",
+            "C04-JOB-014"
+          ]
+        },
+        {
+          "site_id": "CTR-004-AREA-3",
+          "label": "Plymouth demo area",
+          "city": "Plymouth",
+          "latitude": 50.38,
+          "longitude": -4.14,
+          "job_ids": [
+            "C04-JOB-003",
+            "C04-JOB-006",
+            "C04-JOB-009",
+            "C04-JOB-012",
+            "C04-JOB-015"
+          ]
+        }
+      ]
+    },
+    {
+      "contract_id": "CTR-005",
+      "contractor": "Meadow Meter Support",
+      "demo_service_region": "North of England",
+      "locations": [
+        {
+          "site_id": "CTR-005-AREA-1",
+          "label": "Manchester demo area",
+          "city": "Manchester",
+          "latitude": 53.48,
+          "longitude": -2.24,
+          "job_ids": [
+            "C05-JOB-001",
+            "C05-JOB-004",
+            "C05-JOB-007",
+            "C05-JOB-010",
+            "C05-JOB-013"
+          ]
+        },
+        {
+          "site_id": "CTR-005-AREA-2",
+          "label": "Leeds demo area",
+          "city": "Leeds",
+          "latitude": 53.8,
+          "longitude": -1.55,
+          "job_ids": [
+            "C05-JOB-002",
+            "C05-JOB-005",
+            "C05-JOB-008",
+            "C05-JOB-011",
+            "C05-JOB-014"
+          ]
+        },
+        {
+          "site_id": "CTR-005-AREA-3",
+          "label": "Newcastle demo area",
+          "city": "Newcastle",
+          "latitude": 54.98,
+          "longitude": -1.61,
+          "job_ids": [
+            "C05-JOB-003",
+            "C05-JOB-006",
+            "C05-JOB-009",
+            "C05-JOB-012",
+            "C05-JOB-015"
+          ]
+        }
+      ]
+    },
+    {
+      "contract_id": "CTR-006",
+      "contractor": "Summit Meter Engineering",
+      "demo_service_region": "Scotland",
+      "locations": [
+        {
+          "site_id": "CTR-006-AREA-1",
+          "label": "Glasgow demo area",
+          "city": "Glasgow",
+          "latitude": 55.86,
+          "longitude": -4.25,
+          "job_ids": [
+            "C06-JOB-001",
+            "C06-JOB-004",
+            "C06-JOB-007",
+            "C06-JOB-010",
+            "C06-JOB-013"
+          ]
+        },
+        {
+          "site_id": "CTR-006-AREA-2",
+          "label": "Edinburgh demo area",
+          "city": "Edinburgh",
+          "latitude": 55.95,
+          "longitude": -3.19,
+          "job_ids": [
+            "C06-JOB-002",
+            "C06-JOB-005",
+            "C06-JOB-008",
+            "C06-JOB-011",
+            "C06-JOB-014"
+          ]
+        },
+        {
+          "site_id": "CTR-006-AREA-3",
+          "label": "Dundee demo area",
+          "city": "Dundee",
+          "latitude": 56.46,
+          "longitude": -2.97,
+          "job_ids": [
+            "C06-JOB-003",
+            "C06-JOB-006",
+            "C06-JOB-009",
+            "C06-JOB-012",
+            "C06-JOB-015"
+          ]
+        }
+      ]
+    }
+  ]
+}

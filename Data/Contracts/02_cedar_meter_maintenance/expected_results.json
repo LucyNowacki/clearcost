@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0",
+  "data_classification": "Synthetic demonstration data",
+  "purpose": "Test oracle only; keep separate from reconciliation and extraction inputs.",
+  "scenario_id": "02_cedar_meter_maintenance",
+  "contractor": "Cedar Meter Maintenance",
+  "currency": "GBP",
+  "money_unit": "integer_pence",
+  "tax_basis": "exclusive_of_vat",
+  "source_files": [
+    "contract.pdf",
+    "visits.csv",
+    "invoice_lines.csv",
+    "invoice.pdf"
+  ],
+  "contract_rules": {
+    "contract_id": "CTR-003",
+    "version": "1.0",
+    "effective_from": "2026-08-01",
+    "effective_to": "2026-08-31",
+    "service_type": "standard_meter_maintenance",
+    "standard_visit_rate_pence": 6000,
+    "cancelled_visit_rate_pence": 1500,
+    "incomplete_visit_rate_pence": 0,
+    "completion_reference_required": true,
+    "additional_approvals": [],
+    "missing_visit_record_policy": "unverified_pending_evidence",
+    "duplicate_policy": "first occurrence by line_number is retained",
+    "prior_period_invoices": []
+  },
+  "expected_summary": {
+    "visit_count": 15,
+    "completed_visits": 12,
+    "cancelled_visits": 2,
+    "incomplete_visits": 1,
+    "invoice_line_count": 16,
+    "matched_line_count": 12,
+    "flagged_line_count": 4,
+    "billed_total_pence": 92500,
+    "expected_total_pence": 75000,
+    "discrepancy_total_pence": 17500,
+    "realised_savings_pence": 0,
+    "findings_by_type": {
+      "rate_mismatch": {
+        "count": 1,
+        "discrepancy_pence": 1000
+      },
+      "cancelled_visit_rate_mismatch": {
+        "count": 1,
+        "discrepancy_pence": 4500
+      },
+      "non_chargeable_incomplete": {
+        "count": 1,
+        "discrepancy_pence": 6000
+      },
+      "duplicate_job": {
+        "count": 1,
+        "discrepancy_pence": 6000
+      }
+    }
+  },
+  "expected_lines": [
+    {
+      "line_id": "C03-LINE-001",
+      "job_id": "C03-JOB-001",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-001"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-002",
+      "job_id": "C03-JOB-002",
+      "classification": "rate_mismatch",
+      "requires_review": true,
+      "billed_pence": 7000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 1000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-002"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Completed visit is billed above the agreed standard price."
+    },
+    {
+      "line_id": "C03-LINE-003",
+      "job_id": "C03-JOB-003",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-003"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-004",
+      "job_id": "C03-JOB-004",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-004"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-005",
+      "job_id": "C03-JOB-005",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-005"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-006",
+      "job_id": "C03-JOB-006",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-006"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-007",
+      "job_id": "C03-JOB-007",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-007"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-008",
+      "job_id": "C03-JOB-008",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-008"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-009",
+      "job_id": "C03-JOB-009",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-009"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-010",
+      "job_id": "C03-JOB-010",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-010"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-011",
+      "job_id": "C03-JOB-011",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-011"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-012",
+      "job_id": "C03-JOB-012",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 6000,
+      "expected_pence": 6000,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-012"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-013",
+      "job_id": "C03-JOB-013",
+      "classification": "cancelled_visit_rate_mismatch",
+      "requires_review": true,
+      "billed_pence": 6000,
+      "expected_pence": 1500,
+      "discrepancy_pence": 4500,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-013"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Cancelled visit is billed at the completed-visit price instead of its contractual cancellation charge."
+    },
+    {
+      "line_id": "C03-LINE-014",
+      "job_id": "C03-JOB-014",
+      "classification": "match",
+      "requires_review": false,
+      "billed_pence": 1500,
+      "expected_pence": 1500,
+      "discrepancy_pence": 0,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-014"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Charge agrees with recorded service and contract, including any specific approval."
+    },
+    {
+      "line_id": "C03-LINE-015",
+      "job_id": "C03-JOB-015",
+      "classification": "non_chargeable_incomplete",
+      "requires_review": true,
+      "billed_pence": 6000,
+      "expected_pence": 0,
+      "discrepancy_pence": 6000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "2"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-015"
+      },
+      "related_invoice_line_ids": [],
+      "reason": "Incomplete visit is billed although no charge is allowed."
+    },
+    {
+      "line_id": "C03-LINE-016",
+      "job_id": "C03-JOB-001",
+      "classification": "duplicate_job",
+      "requires_review": true,
+      "billed_pence": 6000,
+      "expected_pence": 0,
+      "discrepancy_pence": 6000,
+      "contract_evidence": {
+        "file": "contract.pdf",
+        "clauses": [
+          "4"
+        ]
+      },
+      "visit_evidence": {
+        "file": "visits.csv",
+        "job_id": "C03-JOB-001"
+      },
+      "related_invoice_line_ids": [
+        "C03-LINE-001"
+      ],
+      "reason": "The same job is already charged on the first invoice line."
+    }
+  ],
+  "scenario_coverage": {
+    "included": [
+      "correct completed charges",
+      "wrong rate",
+      "cancelled charge discrepancy",
+      "correct cancelled charge",
+      "incomplete charge",
+      "duplicate job"
+    ],
+    "not_included": [
+      "missing service records",
+      "VAT calculations",
+      "prior period duplicates"
+    ]
+  }
+}

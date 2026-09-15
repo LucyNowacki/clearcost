@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+output/
+dist/
+
+.ruff_cache/
+.env
+.env.*
+*.sqlite3

@@ -1,0 +1,17 @@
+data_classification,invoice_id,invoice_date,period_start,period_end,contract_id,contractor,line_id,line_number,job_id,service_date,service_type,quantity,unit_rate_pence,line_amount_pence,currency,tax_basis
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-001,1,C02-JOB-001,2026-08-01,standard_meter_inspection,1,5000,5000,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-002,2,C02-JOB-002,2026-08-02,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-003,3,C02-JOB-003,2026-08-03,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-004,4,C02-JOB-004,2026-08-04,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-005,5,C02-JOB-005,2026-08-05,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-006,6,C02-JOB-006,2026-08-06,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-007,7,C02-JOB-007,2026-08-07,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-008,8,C02-JOB-008,2026-08-08,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-009,9,C02-JOB-009,2026-08-09,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-010,10,C02-JOB-010,2026-08-10,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-011,11,C02-JOB-011,2026-08-11,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-012,12,C02-JOB-012,2026-08-12,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-013,13,C02-JOB-013,2026-08-13,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-014,14,C02-JOB-014,2026-08-14,standard_meter_inspection,1,0,0,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-015,15,C02-JOB-015,2026-08-15,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat
+Synthetic demonstration data,INV-002,2026-09-01,2026-08-01,2026-08-31,CTR-002,Northbank Meter Services,C02-LINE-016,16,C02-JOB-001,2026-08-01,standard_meter_inspection,1,4500,4500,GBP,exclusive_of_vat

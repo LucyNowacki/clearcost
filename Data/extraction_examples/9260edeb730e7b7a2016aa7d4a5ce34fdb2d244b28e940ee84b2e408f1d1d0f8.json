@@ -1,0 +1,81 @@
+{
+  "status": "draft_needs_human_review",
+  "model": "gpt-5.3-codex-spark",
+  "version": "spark-contract-v1",
+  "provider": "codex_chatgpt",
+  "source": "Data/Contracts/01_northbank_meter_services/contract.pdf",
+  "source_sha256": "978399b7f2cf8ed3b76e1ee4066563ce87bd4108c719283e7496a7857e041e24",
+  "created_at": "2026-09-14T18:25:52.640534+00:00",
+  "extraction": {
+    "terms": [
+      {
+        "field": "contract_id",
+        "value": "CTR-002",
+        "page": 1,
+        "quote": "Contract: CTR-002   Version: 1.0",
+        "uncertainty": null
+      },
+      {
+        "field": "standard_rate",
+        "value": "Each completed visit costs GBP 45.00 before VAT, subject to the specific approval in clause 5",
+        "page": 1,
+        "quote": "Each completed visit costs GBP 45.00 before VAT, subject to\nthe specific approval in clause 5.",
+        "uncertainty": null
+      },
+      {
+        "field": "cancellation_charge",
+        "value": "A cancelled visit has a fixed charge of GBP 0.00",
+        "page": 1,
+        "quote": "A cancelled visit has a fixed charge of GBP 0.00.",
+        "uncertainty": null
+      },
+      {
+        "field": "incomplete_visit_charge",
+        "value": "Incomplete visits have no charge",
+        "page": 1,
+        "quote": "Incomplete visits have no charge.",
+        "uncertainty": null
+      },
+      {
+        "field": "currency_and_tax",
+        "value": "All amounts are GBP before VAT; VAT, gross payable totals and payment processing are excluded",
+        "page": 1,
+        "quote": "All amounts are GBP before VAT. CSV monetary values are integer\npence. VAT, gross payable totals and payment processing are excluded.",
+        "uncertainty": null
+      },
+      {
+        "field": "effective_period",
+        "value": "Effective: 1-31 August 2026, inclusive.",
+        "page": 1,
+        "quote": "Effective: 1-31 August 2026, inclusive.",
+        "uncertainty": null
+      },
+      {
+        "field": "completion_evidence",
+        "value": "Service record must identify job, service date and status, and completed visits require a completion reference; missing records require further evidence and must not be treated as zero-cost work",
+        "page": 1,
+        "quote": "The service record must identify the job, service date and status. Completed visits require a completion\nreference. Only services dated in August 2026 belong to this invoice. Missing records require further evidence;\nthey must not automatically be treated as zero-cost work.",
+        "uncertainty": null
+      },
+      {
+        "field": "duplicate_policy",
+        "value": "Each job may appear once only; for duplicate reconciliation, retain earliest invoice line number and flag later charges for the same job",
+        "page": 1,
+        "quote": "Each job may appear once only. For duplicate reconciliation, retain the earliest invoice line number and flag later\ncharges for the same job.",
+        "uncertainty": null
+      },
+      {
+        "field": "supplements_and_exceptions",
+        "value": "No approved supplements or price amendments; extra work is only chargeable with separate written approval before chargeability",
+        "page": 1,
+        "quote": "There are no approved supplements or price amendments. Extra work needs separate written approval before it\nis chargeable.",
+        "uncertainty": null
+      }
+    ],
+    "warnings": [
+      "No other cancellation conditions or minimum charges are stated for this agreement.",
+      "Monthly invoices are explicitly reviewed against this agreement and service records; flagged amounts require investigation and are described as not realised savings, which may affect review handling but not the direct charge terms."
+    ]
+  },
+  "validation": "Field structure and quoted text checked; meaning requires human review."
+}
