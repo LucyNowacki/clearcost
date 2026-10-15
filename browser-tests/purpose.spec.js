@@ -8,6 +8,49 @@ async function openPurpose(page) {
   return page.getByRole("dialog", { name: "Project Purpose", exact: true });
 }
 
+test("neon purpose button opens on all six menu pages and respects reduced motion", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/#overview");
+  const opener = page.getByRole("button", {
+    name: "Project Purpose",
+    exact: true,
+  });
+  const panel = page.getByRole("dialog", {
+    name: "Project Purpose",
+    exact: true,
+  });
+  for (const view of [
+    "overview",
+    "customers",
+    "forecast",
+    "media",
+    "board",
+    "evidence",
+  ]) {
+    await page.locator(`#nav a[data-view="${view}"]`).click();
+    await expect(opener).toBeInViewport();
+    await expect(opener).toHaveCSS("animation-name", "purpose-neon-pulse");
+    await expect(opener).toHaveAttribute("aria-expanded", "false");
+    await opener.click();
+    await expect(panel).toBeVisible();
+    await expect(opener).toHaveAttribute("aria-expanded", "true");
+    await page.keyboard.press("Escape");
+    await expect(panel).toBeHidden();
+    await expect(opener).toBeFocused();
+  }
+  await opener.evaluate((el) => el.blur());
+  await page.mouse.move(0, 0);
+  const shadow = await opener.evaluate((el) => getComputedStyle(el).boxShadow);
+  await expect
+    .poll(() => opener.evaluate((el) => getComputedStyle(el).boxShadow))
+    .not.toBe(shadow);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(opener).toHaveCSS("animation-name", "none");
+  await expect(opener).not.toHaveCSS("box-shadow", "none");
+});
+
 test("purpose explains the project, routes to every view and preserves pinned state across navigation and filters", async ({
   page,
 }) => {
