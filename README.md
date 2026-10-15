@@ -12,6 +12,8 @@ The project also includes a **separate, entirely simulated media experiment**. C
 
 ## Explore the app
 
+Start with **Project Purpose**, beside the Overview heading, for the business question and a suggested route through all six views. Its floating guide can be dragged, resized from any edge or corner, maximised, pinned across navigation and made translucent with the opacity slider. Keyboard users can move it with the title bar's arrow keys, resize with Shift + arrow keys, maximise/restore with Enter and close with Escape.
+
 - **Overview:** filter company, city and year; compare trips, recorded revenue and gross contribution; export city comparisons.
 - **Customer segments:** compare observed trip-frequency groups, repeat activity and recorded contribution, with a visual composition summary that follows the company filter. These are descriptive customer-company groups across the complete window, not churn or lifetime-value predictions.
 - **Model validation:** inspect the later six-month holdout for a Ridge trend/seasonality model alongside a seasonal-naive comparator. The simple baseline performs better for both companies, and that result stays visible.

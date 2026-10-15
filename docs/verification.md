@@ -12,7 +12,7 @@ The seasonal-naive forecast has lower six-month holdout WAPE than Ridge for both
 
 ## Browser checks
 
-`CHROME_PATH=/opt/google/chrome/chrome npm run test:browser` passed all **11 tests** using a fresh headless Chrome session against the local static app after the visual refresh on 15 October 2026.
+The browser suite has **16 passing tests**, verified using fresh headless Chrome sessions against the local static app on 15 October 2026: the 11 dashboard regression tests, plus five Project Purpose window tests. Run the full suite with `CHROME_PATH=/opt/google/chrome/chrome npm run test:browser`.
 
 - All six analytical views render without JavaScript errors or external runtime requests.
 - Chart canvas pixel checks confirm nonblank charts.
@@ -22,6 +22,7 @@ The seasonal-naive forecast has lower six-month holdout WAPE than Ridge for both
 - New tasks and review exports work. HTML-like reviewer text is displayed as text, not executable markup.
 - The simulated model allocation sums to 100%, respects share bounds and agrees with the Python optimiser's exported objective within integer-slider rounding.
 - A stale review opened in another tab cannot overwrite the newer decision.
+- The Project Purpose guide supports real mouse title-bar dragging, all eight resize handles with fixed opposite edges, double-click maximise/restore, keyboard movement/resizing, opacity adjustment, close/focus return and pinning across view/filter changes. Mobile checks at 390px and 320px include a shortened viewport, scrolling and accessible close/opacity controls. Touch hardware and assistive-technology sessions were not tested.
 - Desktop 1440px, intermediate 1024px and mobile 390px/320px screenshots cover every view, with no page-level horizontal overflow. Separate checks also covered 768px and 1920px. Wide data tables and board columns scroll inside their own containers.
 
 Overview, customers, model validation, board, media and mobile evidence screenshots were visually inspected. The published README images are from the verified browser app. The visual refresh introduces a portfolio-violet navigation rail, a divided metric band, customer composition bars, coloured company markers and clearer task status lanes. Chart series, sliders and legends share consistent colours. Analytical charts remain on white work surfaces; underlying data and model outputs are unchanged.
