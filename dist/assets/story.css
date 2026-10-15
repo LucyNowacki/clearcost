@@ -1,0 +1,275 @@
+.application-route,
+.application-evidence,
+.mmm-introduction {
+  margin: 0 0 26px;
+  padding: 20px 0;
+  border-top: 2px solid var(--cyan);
+  border-bottom: 1px solid var(--line);
+}
+.story-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.story-heading > div {
+  min-width: 0;
+}
+.story-heading h2 {
+  line-height: 1.4;
+}
+.story-heading .sub {
+  margin-top: 8px;
+}
+.story-heading > a,
+.proof-links a {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+.story-heading > a {
+  flex-shrink: 0;
+}
+.story-heading .lucide,
+.proof-links .lucide {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.story-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.story-steps > a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 16px;
+  gap: 10px;
+  padding: 8px 0;
+  color: var(--ink);
+  text-decoration: none;
+}
+.story-steps > a:hover strong {
+  color: var(--purple);
+  text-decoration: underline;
+}
+.story-steps .lucide {
+  width: 16px;
+  color: var(--purple);
+}
+.story-steps strong,
+.story-steps small {
+  display: block;
+}
+.story-steps small {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.story-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pink);
+}
+.story-boundary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 16px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+.story-boundary span::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  background: var(--cyan);
+}
+.story-boundary span:nth-child(2)::before {
+  background: var(--pink);
+}
+.answer-detail {
+  border-top: 1px solid var(--line);
+}
+.answer-detail summary {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 18px;
+  gap: 10px;
+  padding: 18px 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  list-style: none;
+  cursor: pointer;
+}
+.answer-detail summary::-webkit-details-marker {
+  display: none;
+}
+.answer-detail summary .lucide {
+  width: 18px;
+  margin-top: 2px;
+}
+.answer-detail[open] summary > .lucide {
+  transform: rotate(180deg);
+}
+.answer-detail summary:hover {
+  color: var(--purple);
+}
+.answer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(240px, 1fr);
+  gap: 32px;
+  padding: 4px 0 24px 34px;
+}
+.answer-prose p,
+.answer-proof p,
+.answer-proof li,
+.mmm-introduction > p,
+.carryover-controls p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 14px;
+}
+.answer-prose .eyebrow {
+  font-size: 10px;
+}
+.answer-proof {
+  border-left: 2px solid var(--cyan);
+  padding-left: 20px;
+}
+.answer-proof h3 {
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+.answer-proof ul {
+  margin: 0 0 16px;
+  padding-left: 16px;
+}
+.proof-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+.answer-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+}
+.mmm-equation {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr) 20px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.mmm-equation > div {
+  border-left: 2px solid var(--purple);
+  padding-left: 12px;
+}
+.mmm-equation > div:nth-of-type(2) {
+  border-color: var(--cyan);
+}
+.mmm-equation > div:nth-of-type(3) {
+  border-color: var(--pink);
+}
+.mmm-equation strong,
+.mmm-equation small {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.mmm-equation small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.mmm-equation .lucide {
+  width: 18px;
+  color: var(--purple);
+}
+.carryover-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.5fr);
+}
+.carryover-controls {
+  padding: 22px;
+  border-right: 1px solid var(--line);
+}
+.carryover-controls label,
+.carryover-controls input {
+  display: block;
+  width: 100%;
+}
+.carryover-controls .field {
+  margin-bottom: 18px;
+}
+.carryover-controls label > output {
+  float: right;
+  font-weight: 600;
+}
+.carryover-controls input {
+  margin: 12px 0 18px;
+  accent-color: var(--purple);
+}
+.carryover-controls code {
+  font-size: 11px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.carryover-result {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-bottom: 14px;
+}
+.carryover-result small,
+.carryover-result output {
+  display: block;
+}
+.carryover-result output {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 5px;
+  color: var(--purple);
+}
+@media (max-width: 1100px) {
+  .answer-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .story-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .story-steps,
+  .carryover-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .story-steps {
+    gap: 4px;
+  }
+  .mmm-equation {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .mmm-equation > span {
+    margin-left: 12px;
+  }
+  .answer-layout {
+    padding-left: 0;
+  }
+  .carryover-controls {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}

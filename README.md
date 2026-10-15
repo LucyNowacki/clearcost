@@ -17,11 +17,23 @@ Start with **Project Purpose**, beside each page heading, for the business quest
 - **Overview:** filter company, city and year; compare trips, recorded revenue and gross contribution; export city comparisons.
 - **Customer segments:** compare observed trip-frequency groups, repeat activity and recorded contribution, with a visual composition summary that follows the company filter. These are descriptive customer-company groups across the complete window, not churn or lifetime-value predictions.
 - **Model validation:** inspect the later six-month holdout for a Ridge trend/seasonality model alongside a seasonal-naive comparator. The simple baseline performs better for both companies, and that result stays visible.
-- **Media lab:** inspect synthetic channel response and conditional holdout results; adjust a weekly budget and channel shares; compare equal split with a constrained model allocation.
+- **Media lab:** explain Marketing Mix Modelling, adstock and saturation; inspect synthetic channel response and conditional holdout results; adjust a weekly budget and channel shares; compare equal split with a constrained model allocation. An isolated carryover illustration shows how a one-week advertising pulse decays without changing the fitted model.
 - **Decision board:** Jira-style Backlog / In progress / Review / Done, owner and priority fields, acceptance criteria, review notes, stale-edit protection, new tasks and a Jira-compatible CSV for manual mapping/import.
-- **Evidence & methods:** source register, join checks and browser review history. Export a Markdown client brief carrying the evidence, uncertainty and current decisions.
+- **Evidence & methods:** three application-question drafts with inspectable evidence, source register, join checks and browser review history. Copy an individual draft or download all three for review. Export a Markdown client brief carrying the evidence, uncertainty and current decisions.
 
 Jira itself is not connected. The board applies familiar issue-management ideas to analytical delivery. Browser review labels are not authenticated identities; local history is not an immutable enterprise audit log.
+
+## Application evidence
+
+The Overview connects the application questions to work that can be inspected, not just claims:
+
+| Question | Evidence in the project |
+| --- | --- |
+| [What is Marketing Mix Modelling?](https://lucynowacki.github.io/clearcost/decision-lab/#evidence/mmm) | Aggregate time-series reasoning; underlying demand versus media response; adstock, saturation and constrained scenarios in a clearly labelled simulation. |
+| [When did I solve a problem with data?](https://lucynowacki.github.io/clearcost/decision-lab/#evidence/problem-solving) | Checked joins retaining all 359,392 CAB trips; a chronological holdout where the seasonal baseline beats Ridge; the resulting review workflow. |
+| [Why Ekimetrics and MMM?](https://lucynowacki.github.io/clearcost/decision-lab/#evidence/ekimetrics) | A motivation statement connecting quantitative analysis to commercial judgement, grounded in Ekimetrics' public positioning and this independent project. |
+
+These are first-person drafts for Lucy's review, not submitted answers or verified client outcomes. The problem-solving figures are read from the same published data as the dashboard. No client lift, production adoption or experimental calibration is claimed. [Ekimetrics' marketing-effectiveness page](https://www.ekimetrics.com/solutions/marketing-effectiveness) and [careers page](https://www.ekimetrics.com/join-ekimetrics) were checked on 15 October 2026. [Google's Meridian introduction](https://developers.google.com/meridian/docs/basics/meridian-introduction) provides further MMM context; Meridian is not used by this prototype.
 
 ![Commercial performance overview](docs/images/overview.png)
 
@@ -94,7 +106,7 @@ Alternatively, on a machine with Chrome installed:
 CHROME_PATH=/opt/google/chrome/chrome npm run test:browser
 ```
 
-The browser suite checks all six views, nonblank charts, data-filter totals, exports, review refusal, persistence, escaped review text, concurrent edits, allocation constraints, Python/browser response agreement, and desktop/mobile layout. See [verification](docs/verification.md) for the observed results and limits. Tests use isolated browser contexts, not personal review history.
+The browser suite checks all six views, nonblank charts, data-filter totals, exports, review refusal, persistence, escaped review text, concurrent edits, allocation constraints, Python/browser response agreement, the floating Project Purpose guide, application deep links and answer exports, adstock illustration values, and desktop/mobile layout. See [verification](docs/verification.md) for the observed results and limits. Tests use isolated browser contexts, not personal review history.
 
 ## Responsible analysis and AI assistance
 

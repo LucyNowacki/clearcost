@@ -411,6 +411,7 @@ function overview() {
       )
       .join("")}</tbody></table></div></section>
     <section class="section"><div class="section-head"><h2>From insight to action</h2><i data-lucide="lightbulb"></i></div><div class="takeaway"><p class="eyebrow">Highest ${esc(citySort.replace("per_trip", "contribution per trip"))} in scope</p><p class="big">${esc(topCity?.city || "No observations")}</p><p>${topCity ? `${num(topCity.trips)} recorded trips and ${money(topCity.per_trip)} contribution per trip.` : "Change the selected scope."}</p><p>Check city mix and repeat behaviour. Request channel-spend data, then design a controlled acquisition or retention test.</p><a href="#board">Review the measurement plan →</a><p class="small-note">Observed differences are not causal marketing effects.</p></div></section></div>`;
+  $(".page-heading").insertAdjacentHTML("afterend", applicationOverview());
   const months = [...new Set(rs.map((r) => r.month))].sort();
   const companies = data.cab.companies
     .map((c) => c.company)
@@ -595,6 +596,8 @@ function media() {
       '<span class="pill sim"><i data-lucide="flask-conical"></i> Simulated data</span>',
     ) +
     `<div class="callout"><i data-lucide="info"></i><p><strong>Entirely simulated media data, in GBP.</strong> This is separate from the observed CAB case study. Estimated response and allocation depend on the simulated model; they are not measured campaign lift or real spending advice.</p></div><div class="grid"><section class="section"><div class="sim-banner">SIMULATION · Seed ${esc(m.seed)} · Steady weekly spend after carryover settles</div><div class="section-head"><h2>Budget & allocation</h2><button class="button small" id="optimise"><i data-lucide="sparkles"></i> Model allocation</button></div><div class="section-body"><div class="range-row"><div><label for="budget">Weekly media budget</label><div id="budget-value" class="media-budget">${money(budget, "GBP")}</div><input id="budget" type="range" min="10000" max="100000" step="5000" value="${budget}"></div><button class="icon-button" id="reset-allocation" title="Reset to equal allocation" aria-label="Reset to equal allocation"><i data-lucide="rotate-ccw"></i></button></div>${m.channels.map((c) => `<div class="allocation-row"><div><label for="share-${c.id}">${esc(c.name)}<span id="spend-${c.id}"></span></label><input id="share-${c.id}" data-share="${c.id}" type="range" min="10" max="60" step="1" value="${shares[c.id]}"></div><output id="value-${c.id}" for="share-${c.id}">${shares[c.id]}%</output></div>`).join("")}<p class="constraint">Each channel: 10–60% of the budget. Total allocation: 100%. The model assumes unchanged response curves, prices and external conditions.</p><div class="result-grid"><div><small>Modelled incremental revenue / week</small><strong id="response-value"></strong></div><div><small>Equal-split model comparison / week</small><strong id="balanced-value"></strong></div><div><small>Difference from equal split</small><strong id="uplift-value" class="positive"></strong></div></div></div></section><section class="section"><div class="section-head"><div><h2>Diminishing returns</h2><p class="sub">Modelled steady-state response · GBP per week</p></div></div><div class="section-body"><div class="chart-box tall"><canvas id="response-chart" role="img" aria-label="Simulated channel response curves with diminishing returns"></canvas></div><p class="small-note">Curves are conditional model estimates. A live allocation would also need uncertainty, experiments and business constraints.</p></div></section></div><section class="section spaced"><div class="section-head"><div><h2>Simulated revenue and holdout predictions</h2><p class="sub">Final ${m.metrics.holdout_weeks} weeks held out · seed ${esc(m.seed)}</p></div><span class="badge">Educational MMM prototype</span></div><div class="section-body"><div class="chart-box"><canvas id="media-fit-chart" role="img" aria-label="Simulated revenue and model predictions over time"></canvas></div></div><div class="summary-strip"><div><small>Holdout model MAE</small><strong>${money(m.metrics.model_mae, "GBP")}</strong></div><div><small>Holdout baseline MAE</small><strong>${money(m.metrics.baseline_mae, "GBP")}</strong></div><div><small>Holdout model RMSE</small><strong>${money(m.metrics.model_rmse, "GBP")}</strong></div></div></section>`;
+  $(".page-heading").insertAdjacentHTML("afterend", mmmIntroduction());
+  main.insertAdjacentHTML("beforeend", carryoverMarkup());
   const xs = Array.from({ length: 21 }, (_, i) => i * 5000);
   chart(
     "response-chart",
@@ -689,6 +692,7 @@ function media() {
     shares = { search: 34, social: 33, video: 33 };
     updateScenario();
   };
+  bindCarryover();
 }
 function updateScenario() {
   $("#budget-value").textContent = money(budget, "GBP");
@@ -832,6 +836,8 @@ function evidence() {
             .join("")
         : '<p class="sub">No review decisions recorded in this browser.</p>'
     }</div></section><section class="section spaced"><div class="section-head"><h2>Data checks</h2></div><div class="section-body prose">${audits.map(([k, v]) => `<p><strong>${esc(k)}</strong><br><code>${esc(typeof v === "object" ? JSON.stringify(v) : v)}</code></p>`).join("")}</div></section></div></div>`;
+  $(".page-heading").insertAdjacentHTML("afterend", applicationEvidence());
+  bindApplicationEvidence();
   $("#export-events").onclick = () =>
     download(
       JSON.stringify(state.events, null, 2),
@@ -981,7 +987,7 @@ function exportBrief() {
   toast("Exported the brief with source references and review states.");
 }
 function currentView() {
-  const v = location.hash.slice(1);
+  const v = location.hash.slice(1).split("/")[0];
   return views[v] ? v : "overview";
 }
 function render() {

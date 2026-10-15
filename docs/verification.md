@@ -12,7 +12,7 @@ The seasonal-naive forecast has lower six-month holdout WAPE than Ridge for both
 
 ## Browser checks
 
-The browser suite has **17 passing tests**, verified using fresh headless Chrome sessions against the local static app on 15 October 2026: the 11 dashboard regression tests, plus six Project Purpose tests. Run the full suite with `CHROME_PATH=/opt/google/chrome/chrome npm run test:browser`.
+The browser suite has **24 passing tests**, verified using fresh headless Chrome sessions against the local static app on 15 October 2026: 11 dashboard regression tests, six Project Purpose tests and seven application-evidence/MMM tests. Run the full suite with `CHROME_PATH=/opt/google/chrome/chrome npm run test:browser`.
 
 - All six analytical views render without JavaScript errors or external runtime requests.
 - Chart canvas pixel checks confirm nonblank charts.
@@ -23,6 +23,9 @@ The browser suite has **17 passing tests**, verified using fresh headless Chrome
 - The simulated model allocation sums to 100%, respects share bounds and agrees with the Python optimiser's exported objective within integer-slider rounding.
 - A stale review opened in another tab cannot overwrite the newer decision.
 - Project Purpose is visible and opens from all six menu pages. Its neon shadow animates without moving or hiding the label; reduced-motion preference disables the pulse and retains a static glow.
+- Overview links open the correct application answer; deep links survive reload and unknown answer names fall back to the MMM explanation. Evidence figures agree with the published data. Copy/download preserve draft status, and clipboard failure offers the download route. Native answer accordions support keyboard operation.
+- The isolated adstock illustration follows `10000 * decay ** week_index` for a single week-1 pulse, with checks at decay 0, 0.5 and 0.9 and all three channel presets. Changing it does not modify the fitted budget scenario. It is explicitly labelled as transformed spend input, not sales, ROI or a refitted model.
+- All three expanded application answers fit 1440px, 390px and 320px viewports; screenshots cover the expanded content as well as the existing six views.
 - The Project Purpose guide supports real mouse title-bar dragging, all eight resize handles with fixed opposite edges, double-click maximise/restore, keyboard movement/resizing, opacity adjustment, close/focus return and pinning across view/filter changes. Mobile checks at 390px and 320px include a shortened viewport, scrolling and accessible close/opacity controls. Touch hardware and assistive-technology sessions were not tested.
 - Desktop 1440px, intermediate 1024px and mobile 390px/320px screenshots cover every view, with no page-level horizontal overflow. Separate checks also covered 768px and 1920px. Wide data tables and board columns scroll inside their own containers.
 

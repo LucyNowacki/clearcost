@@ -17,3 +17,5 @@ jobs:
       - run: python -m pip install -e '.[test]'
       - run: python -m pytest
       - run: node --check dist/assets/app.js
+      - run: node --check dist/assets/story.js
+      - run: node --check dist/assets/purpose.js
