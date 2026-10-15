@@ -10,45 +10,57 @@
     <meta name="theme-color" content="#593196" />
     <title>Decision Lab | Lucy Nowacki</title>
     <link rel="icon" href="assets/lucy.png" />
-    <link rel="stylesheet" href="assets/app.css" />
+    <link rel="stylesheet" href="assets/app.css?v=20261015-visual2" />
     <script defer src="assets/vendor/chart.umd.js"></script>
     <script defer src="assets/vendor/lucide.min.js"></script>
-    <script defer src="assets/app.js"></script>
+    <script defer src="assets/app.js?v=20261015-visual2"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
     <aside class="sidebar" aria-label="Workspace navigation">
-      <a class="brand" href="#overview"
+      <a class="brand" href="#overview" title="Decision Lab overview"
         ><span class="brand-symbol" aria-hidden="true"
           ><i data-lucide="chart-no-axes-combined"></i></span
-        ><span>Decision Lab<small>Lucy Nowacki · Portfolio</small></span></a
+        ><span>Decision Lab<small>MARKETING INTELLIGENCE</small></span></a
       >
       <div class="workspace">
         <span class="workspace-icon"><i data-lucide="car-front"></i></span>
-        <div>
-          <strong>Cab growth</strong><span>Commercial analytics project</span>
-        </div>
+        <div><strong>Cab growth</strong><span>Research workspace</span></div>
       </div>
       <nav id="nav">
-        <a href="#overview" data-view="overview"
-          ><i data-lucide="layout-dashboard"></i> Overview</a
+        <p class="nav-group">Explore</p>
+        <a href="#overview" data-view="overview" title="Performance overview"
+          ><i data-lucide="layout-dashboard"></i
+          ><span class="nav-label">Overview</span
+          ><span class="mobile-label">Overview</span></a
         >
-        <a href="#customers" data-view="customers"
-          ><i data-lucide="users-round"></i> Customer segments</a
+        <a href="#customers" data-view="customers" title="Customer segments"
+          ><i data-lucide="users-round"></i
+          ><span class="nav-label">Customer segments</span
+          ><span class="mobile-label">Customers</span></a
         >
-        <a href="#forecast" data-view="forecast"
-          ><i data-lucide="chart-spline"></i> Model validation</a
+        <a href="#forecast" data-view="forecast" title="Model validation"
+          ><i data-lucide="chart-spline"></i
+          ><span class="nav-label">Model validation</span
+          ><span class="mobile-label">Models</span></a
         >
-        <a href="#media" data-view="media"
-          ><i data-lucide="sliders-horizontal"></i> Media lab
+        <a href="#media" data-view="media" title="Simulated media lab"
+          ><i data-lucide="sliders-horizontal"></i
+          ><span class="nav-label">Media lab</span
+          ><span class="mobile-label">Media</span>
           <span class="nav-tag">SIM</span></a
         >
-        <a href="#board" data-view="board"
-          ><i data-lucide="columns-3"></i> Decision board
+        <p class="nav-group delivery-label">Deliver</p>
+        <a href="#board" data-view="board" title="Decision board"
+          ><i data-lucide="columns-3"></i
+          ><span class="nav-label">Decision board</span
+          ><span class="mobile-label">Board</span>
           <span id="board-count" class="nav-count"></span
         ></a>
-        <a href="#evidence" data-view="evidence"
-          ><i data-lucide="files"></i> Evidence & methods</a
+        <a href="#evidence" data-view="evidence" title="Evidence and methods"
+          ><i data-lucide="files"></i
+          ><span class="nav-label">Evidence & methods</span
+          ><span class="mobile-label">Evidence</span></a
         >
       </nav>
       <div class="sidebar-bottom">
@@ -71,7 +83,8 @@
     <div class="app">
       <header class="topbar">
         <div class="breadcrumb">
-          Portfolio <span>/</span> Cab growth <span>/</span>
+          <span class="breadcrumb-root">Cab growth</span
+          ><i data-lucide="chevron-right"></i>
           <strong id="crumb">Overview</strong>
         </div>
         <div class="top-actions">
@@ -83,7 +96,12 @@
             title="Open source code"
             aria-label="Open source code"
             ><i data-lucide="github"></i></a
-          ><button id="export-brief" class="button small">
+          ><button
+            id="export-brief"
+            class="button small primary"
+            title="Export decision brief"
+            aria-label="Export brief"
+          >
             <i data-lucide="download"></i> Export brief
           </button>
         </div>

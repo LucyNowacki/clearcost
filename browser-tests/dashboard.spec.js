@@ -77,6 +77,44 @@ test("company/city/year filters preserve the correct trip count and city CSV exp
   expect((await download).suggestedFilename()).toBe("city-comparison.csv");
 });
 
+test("customer summaries and composition follow the company filter without counting groups as unique people", async ({
+  page,
+}) => {
+  await page.goto("/#customers");
+  for (const company of ["All companies", "Pink Cab", "Yellow Cab"]) {
+    await page.locator("#company-filter").selectOption(company);
+    const segments = dataset.cab.segments.filter(
+      (s) => company === "All companies" || s.company === company,
+    );
+    const sum = (rows, key) => rows.reduce((total, row) => total + row[key], 0);
+    const groups = sum(segments, "customers");
+    const contribution = sum(segments, "contribution");
+    const repeat = segments.filter((s) => s.segment !== "one-trip");
+    const values = page.locator(".customer-metrics .metric > strong");
+    await expect(values.nth(0)).toHaveText(
+      new Intl.NumberFormat("en-GB").format(groups),
+    );
+    await expect(values.nth(1)).toHaveText(
+      `${((100 * sum(repeat, "customers")) / groups).toFixed(1)}%`,
+    );
+    await expect(values.nth(2)).toHaveText(
+      `${((100 * sum(repeat, "contribution")) / contribution).toFixed(1)}%`,
+    );
+    await expect(page.locator(".customer-definition")).toContainText(
+      "appears in both",
+    );
+    await expect(page.locator(".segment-profile")).toHaveCount(3);
+    const totalBarWidth = await page
+      .locator(".mix-track span")
+      .evaluateAll((bars) =>
+        bars.reduce((total, bar) => total + parseFloat(bar.style.width), 0),
+      );
+    // Browsers round inline CSS percentages when serialising style.width.
+    expect(totalBarWidth).toBeCloseTo(100, 2);
+    await expect(page.locator("tbody tr")).toHaveCount(segments.length);
+  }
+});
+
 test("a task cannot be finalised without acceptance checks; approved state and notes persist", async ({
   page,
 }) => {
@@ -204,7 +242,9 @@ test("a concurrent review cannot overwrite a newer decision", async ({
 
 for (const viewport of [
   { width: 1440, height: 1000 },
+  { width: 1024, height: 1000 },
   { width: 390, height: 844 },
+  { width: 320, height: 780 },
 ]) {
   test(`responsive layout and screenshots at ${viewport.width}px`, async ({
     page,

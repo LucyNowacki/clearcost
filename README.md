@@ -13,7 +13,7 @@ The project also includes a **separate, entirely simulated media experiment**. C
 ## Explore the app
 
 - **Overview:** filter company, city and year; compare trips, recorded revenue and gross contribution; export city comparisons.
-- **Customer segments:** compare observed trip-frequency groups without demographic targeting. These are descriptive groups across the complete window, not churn or lifetime-value predictions.
+- **Customer segments:** compare observed trip-frequency groups, repeat activity and recorded contribution, with a visual composition summary that follows the company filter. These are descriptive customer-company groups across the complete window, not churn or lifetime-value predictions.
 - **Model validation:** inspect the later six-month holdout for a Ridge trend/seasonality model alongside a seasonal-naive comparator. The simple baseline performs better for both companies, and that result stays visible.
 - **Media lab:** inspect synthetic channel response and conditional holdout results; adjust a weekly budget and channel shares; compare equal split with a constrained model allocation.
 - **Decision board:** Jira-style Backlog / In progress / Review / Done, owner and priority fields, acceptance criteria, review notes, stale-edit protection, new tasks and a Jira-compatible CSV for manual mapping/import.
@@ -22,6 +22,8 @@ The project also includes a **separate, entirely simulated media experiment**. C
 Jira itself is not connected. The board applies familiar issue-management ideas to analytical delivery. Browser review labels are not authenticated identities; local history is not an immutable enterprise audit log.
 
 ![Commercial performance overview](docs/images/overview.png)
+
+![Customer composition and contribution](docs/images/customers.png)
 
 ![Decision board](docs/images/board.png)
 

@@ -12,18 +12,19 @@ The seasonal-naive forecast has lower six-month holdout WAPE than Ridge for both
 
 ## Browser checks
 
-`CHROME_PATH=/opt/google/chrome/chrome npm run test:browser` passed all **8 tests** using a fresh headless Chrome session against the local static app.
+`CHROME_PATH=/opt/google/chrome/chrome npm run test:browser` passed all **11 tests** using a fresh headless Chrome session against the local static app after the visual refresh on 15 October 2026.
 
 - All six analytical views render without JavaScript errors or external runtime requests.
 - Chart canvas pixel checks confirm nonblank charts.
 - Company/city/year filters match the aggregate data; city CSV export works.
+- Customer summary figures and trip-frequency composition match the underlying aggregates for all companies and each individual company. Customer-company groups are explicitly distinguished from unique people.
 - Unchecked acceptance criteria prevent a task being finalised. Reviewed state and reasons survive reload.
 - New tasks and review exports work. HTML-like reviewer text is displayed as text, not executable markup.
 - The simulated model allocation sums to 100%, respects share bounds and agrees with the Python optimiser's exported objective within integer-slider rounding.
 - A stale review opened in another tab cannot overwrite the newer decision.
-- Desktop 1440px and mobile 390px screenshots cover every view, with no page-level horizontal overflow. Wide data tables and board columns scroll inside their own containers.
+- Desktop 1440px, intermediate 1024px and mobile 390px/320px screenshots cover every view, with no page-level horizontal overflow. Separate checks also covered 768px and 1920px. Wide data tables and board columns scroll inside their own containers.
 
-Overview, board and media screenshots were visually inspected. The published README images are from the verified browser app. Interface colours use Lucy's portfolio purple, magenta and cyan as accents on white work surfaces.
+Overview, customers, model validation, board, media and mobile evidence screenshots were visually inspected. The published README images are from the verified browser app. The visual refresh introduces a portfolio-violet navigation rail, a divided metric band, customer composition bars, coloured company markers and clearer task status lanes. Chart series, sliders and legends share consistent colours. Analytical charts remain on white work surfaces; underlying data and model outputs are unchanged.
 
 ## Scope and remaining limits
 
