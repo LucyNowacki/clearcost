@@ -1,0 +1,81 @@
+{
+  "artifact": {
+    "bytes": 394678,
+    "cab_rows": 359392,
+    "monthly_aggregate_rows": 1368,
+    "path": "dist/data/dashboard.json",
+    "raw_customer_rows_exported": false,
+    "sha256": "18374df9dc82a6e0b5088b989f74ed624dcaf5e32b880308ef47cd5547730402",
+    "synthetic_weeks": 156
+  },
+  "notebook": {
+    "cells": 109,
+    "commit": "76c2a3115b1c69d49eeddec109990b8ce3fcf842",
+    "role": "historical inspiration, not a reproduced analysis",
+    "sha256": "0622f9c35a2bb91563d767a3d989f6ab55f98c1a6aaf82455255af620e5a80c0",
+    "url": "https://github.com/LucyNowacki/CAB_EDA/blob/76c2a3115b1c69d49eeddec109990b8ce3fcf842/Cab_2.ipynb"
+  },
+  "runtime": {
+    "numpy": "2.3.2",
+    "pandas": "2.3.3",
+    "python": "3.13.2",
+    "scikit_learn": "1.9.0",
+    "scipy": "1.16.0"
+  },
+  "schema_version": "1.0",
+  "source": {
+    "commit": "1fc686d1e8d01d23bd5be9316f77170ac0a7fcd8",
+    "files": {
+      "Cab_Data.csv": {
+        "bytes": 21158610,
+        "columns": [
+          "Transaction ID",
+          "Date of Travel",
+          "Company",
+          "City",
+          "KM Travelled",
+          "Price Charged",
+          "Cost of Trip"
+        ],
+        "rows": 359392,
+        "sha256": "cfd4c14845fc37aafd298986264405587330c6bb5df219f386443bc83be1742b",
+        "url": "https://raw.githubusercontent.com/DataGlacier/DataSets/1fc686d1e8d01d23bd5be9316f77170ac0a7fcd8/Cab_Data.csv"
+      },
+      "City.csv": {
+        "bytes": 759,
+        "columns": [
+          "City",
+          "Population",
+          "Users"
+        ],
+        "rows": 20,
+        "sha256": "58458f071af7f2d543ef0916756a8241dd83c9b0f6e1d8e4d9e652f10d6e177a",
+        "url": "https://raw.githubusercontent.com/DataGlacier/DataSets/1fc686d1e8d01d23bd5be9316f77170ac0a7fcd8/City.csv"
+      },
+      "Customer_ID.csv": {
+        "bytes": 1051215,
+        "columns": [
+          "Customer ID",
+          "Gender",
+          "Age",
+          "Income (USD/Month)"
+        ],
+        "rows": 49171,
+        "sha256": "6dec2f959fef3809b9b314f1daa3ab2bbb66fe297353c2286ccde1f4ccba25ba",
+        "url": "https://raw.githubusercontent.com/DataGlacier/DataSets/1fc686d1e8d01d23bd5be9316f77170ac0a7fcd8/Customer_ID.csv"
+      },
+      "Transaction_ID.csv": {
+        "bytes": 8998194,
+        "columns": [
+          "Transaction ID",
+          "Customer ID",
+          "Payment_Mode"
+        ],
+        "rows": 440098,
+        "sha256": "f2a8e439aee79817a37c95a5b7c3a2116370e747c95d9abe300542bce5cedc7a",
+        "url": "https://raw.githubusercontent.com/DataGlacier/DataSets/1fc686d1e8d01d23bd5be9316f77170ac0a7fcd8/Transaction_ID.csv"
+      }
+    },
+    "source_url": "https://github.com/DataGlacier/DataSets/tree/1fc686d1e8d01d23bd5be9316f77170ac0a7fcd8"
+  }
+}

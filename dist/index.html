@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Marketing Decision Lab: commercial analysis, a simulated media model and an evidence-led decision board. An independent portfolio project by Lucy Nowacki."
+    />
+    <meta name="theme-color" content="#593196" />
+    <title>Decision Lab | Lucy Nowacki</title>
+    <link rel="icon" href="assets/lucy.png" />
+    <link rel="stylesheet" href="assets/app.css" />
+    <script defer src="assets/vendor/chart.umd.js"></script>
+    <script defer src="assets/vendor/lucide.min.js"></script>
+    <script defer src="assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="#overview"
+        ><span class="brand-symbol" aria-hidden="true"
+          ><i data-lucide="chart-no-axes-combined"></i></span
+        ><span>Decision Lab<small>Lucy Nowacki · Portfolio</small></span></a
+      >
+      <div class="workspace">
+        <span class="workspace-icon"><i data-lucide="car-front"></i></span>
+        <div>
+          <strong>Cab growth</strong><span>Commercial analytics project</span>
+        </div>
+      </div>
+      <nav id="nav">
+        <a href="#overview" data-view="overview"
+          ><i data-lucide="layout-dashboard"></i> Overview</a
+        >
+        <a href="#customers" data-view="customers"
+          ><i data-lucide="users-round"></i> Customer segments</a
+        >
+        <a href="#forecast" data-view="forecast"
+          ><i data-lucide="chart-spline"></i> Model validation</a
+        >
+        <a href="#media" data-view="media"
+          ><i data-lucide="sliders-horizontal"></i> Media lab
+          <span class="nav-tag">SIM</span></a
+        >
+        <a href="#board" data-view="board"
+          ><i data-lucide="columns-3"></i> Decision board
+          <span id="board-count" class="nav-count"></span
+        ></a>
+        <a href="#evidence" data-view="evidence"
+          ><i data-lucide="files"></i> Evidence & methods</a
+        >
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="data-stamp">
+          <span class="status-dot"></span> Public case-study data<small
+            >2016–2018 · USD · No live clients</small
+          >
+        </div>
+        <a
+          href="https://lucynowacki.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="author"
+          ><img src="assets/lucy.png" alt="" /><span
+            >Lucy Nowacki<small>Portfolio & research</small></span
+          ><i data-lucide="arrow-up-right"></i
+        ></a>
+      </div>
+    </aside>
+    <div class="app">
+      <header class="topbar">
+        <div class="breadcrumb">
+          Portfolio <span>/</span> Cab growth <span>/</span>
+          <strong id="crumb">Overview</strong>
+        </div>
+        <div class="top-actions">
+          <a
+            href="https://github.com/LucyNowacki/clearcost/tree/ekimetrics-decision-lab"
+            id="source-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open source code"
+            aria-label="Open source code"
+            ><i data-lucide="github"></i></a
+          ><button id="export-brief" class="button small">
+            <i data-lucide="download"></i> Export brief
+          </button>
+        </div>
+      </header>
+      <main id="main" tabindex="-1">
+        <div class="loading">
+          <i data-lucide="loader-circle"></i> Loading project evidence…
+        </div>
+      </main>
+      <footer class="footer">
+        Independent portfolio project by Lucy Nowacki
+        <span>Browser-local decisions · No Ekimetrics affiliation</span>
+      </footer>
+    </div>
+    <dialog id="issue-dialog" aria-labelledby="issue-title"></dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
