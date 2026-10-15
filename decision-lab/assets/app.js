@@ -333,9 +333,7 @@ function pageHead(eyebrow, title, subtitle, extra = "") {
     evidence: "files",
   };
   const purpose =
-    currentView() === "overview"
-      ? '<button class="button purpose-launch" id="purpose-open" aria-haspopup="dialog" aria-controls="purpose-window" aria-expanded="false"><i data-lucide="info"></i> Project Purpose</button>'
-      : "";
+    '<button class="button purpose-launch" id="purpose-open" aria-haspopup="dialog" aria-controls="purpose-window" aria-expanded="false"><i data-lucide="info"></i> Project Purpose</button>';
   return `<div class="page-heading"><div><p class="eyebrow"><i data-lucide="${pageIcons[currentView()]}"></i>${esc(eyebrow)}</p><div class="heading-title-row"><h1>${esc(title)}</h1>${purpose}</div><p class="sub">${esc(subtitle)}</p></div>${extra}</div>`;
 }
 function badge(s) {

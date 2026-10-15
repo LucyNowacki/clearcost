@@ -9,11 +9,50 @@
   margin-bottom: 0;
 }
 .purpose-launch {
-  color: var(--purple);
-  border-color: #c9b8e1;
-  background: #faf7fe;
+  color: #fff;
+  border-color: #62e5ee;
+  background: #593196;
   min-height: 34px;
   flex-shrink: 0;
+  box-shadow:
+    0 0 0 1px #c32c8750,
+    0 0 8px #00b8d450,
+    0 0 14px #c32c8730;
+  animation: purpose-neon-pulse 2.8s ease-in-out infinite;
+}
+.purpose-launch > .lucide {
+  color: #8ff5ff;
+}
+.purpose-launch:hover,
+.purpose-launch:focus-visible {
+  color: #fff;
+  border-color: #8ff5ff;
+  background: #492579;
+  animation-play-state: paused;
+}
+.purpose-launch:focus-visible {
+  outline: 2px solid #593196;
+  outline-offset: 4px;
+}
+@keyframes purpose-neon-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px #c32c8750,
+      0 0 8px #00b8d450,
+      0 0 14px #c32c8730;
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px #c32c8780,
+      0 0 13px #00b8d49e,
+      0 0 22px #c32c8760;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .purpose-launch {
+    animation: none;
+  }
 }
 .purpose-window[hidden] {
   display: none;
