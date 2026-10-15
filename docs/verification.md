@@ -30,3 +30,13 @@ Overview, board and media screenshots were visually inspected. The published REA
 Browser reviews have no authenticated identity, server persistence or immutable audit trail. The project does not connect to Jira or execute marketing spend. The media optimiser omits real-world uncertainty and the original CAB investment forecasts are not reproduced. No claim of adoption, revenue improvement, campaign lift or recovered savings is made.
 
 Publication uses an isolated `ekimetrics-decision-lab` source branch and a separate `decision-lab/` directory on the existing Clearcost `gh-pages` branch. The public site is checked after deployment; the local screenshots alone do not verify deployment. A later full replacement of the Clearcost Pages branch must retain this directory or republish it.
+
+## Observed publication
+
+- Public app: https://lucynowacki.github.io/clearcost/decision-lab/
+- Initial source commit: `95e9a17aa5e9cf4b74106ace2ec58a085444042b` on `ekimetrics-decision-lab`.
+- Pages publication commit: `c30c99b` on `gh-pages`.
+- All ten public files returned HTTP 200 and matched their local SHA-256 values.
+- A separate fresh-browser smoke check opened all six public views, verified headings and nonblank charts where present, and recorded no JavaScript errors. Run it with `CHROME_PATH=/opt/google/chrome/chrome node browser-tests/public-smoke.cjs https://lucynowacki.github.io/clearcost/decision-lab/`.
+- The original Clearcost root returned HTTP 200 and retained its application content.
+- The initial [GitHub Actions analytical check](https://github.com/LucyNowacki/clearcost/actions/runs/38789655850) completed successfully. Its fresh-clone environment skips the raw-cache-only rebuild test until data is fetched; the local 68-test run includes it.
