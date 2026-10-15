@@ -1,0 +1,328 @@
+.heading-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 8px;
+}
+.heading-title-row h1 {
+  margin-bottom: 0;
+}
+.purpose-launch {
+  color: var(--purple);
+  border-color: #c9b8e1;
+  background: #faf7fe;
+  min-height: 34px;
+  flex-shrink: 0;
+}
+.purpose-window[hidden] {
+  display: none;
+}
+.purpose-window {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  background: white;
+  border: 1px solid #b3a1cc;
+  border-radius: 8px;
+  box-shadow:
+    0 20px 65px #22133140,
+    0 3px 12px #22133120;
+  isolation: isolate;
+}
+.purpose-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px 10px 18px;
+  min-height: 54px;
+  flex-shrink: 0;
+  color: white;
+  background: var(--sidebar);
+  border-radius: 7px 7px 0 0;
+  cursor: move;
+  touch-action: none;
+  user-select: none;
+}
+.purpose-titlebar:focus-visible {
+  outline: 2px solid #6ed8e5;
+  outline-offset: -4px;
+}
+.purpose-window-title,
+.purpose-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.purpose-window-title {
+  min-width: 0;
+}
+.purpose-window-title > .lucide {
+  color: #7ee1ed;
+}
+.purpose-window-title h2 {
+  font-size: 15px;
+  line-height: 1.3;
+}
+.purpose-window-controls {
+  gap: 3px;
+  flex-shrink: 0;
+}
+.purpose-window-controls .icon-button {
+  width: 32px;
+  height: 32px;
+  color: #fff;
+}
+.purpose-window-controls .icon-button:hover {
+  background: #ffffff20;
+  border-color: #ffffff40;
+}
+.purpose-window-controls .icon-button[aria-pressed="true"] {
+  background: #e0f7fa;
+  color: #174b61;
+}
+.purpose-window-controls .icon-button:focus-visible {
+  outline-color: #7ee1ed;
+  outline-offset: 1px;
+}
+.purpose-body {
+  padding: 24px;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.purpose-body p {
+  margin: 0 0 16px;
+}
+.purpose-body h3 {
+  font-size: 14px;
+  margin: 23px 0 10px;
+}
+.purpose-body .purpose-intro {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.purpose-question {
+  display: flex;
+  gap: 11px;
+  background: #eef7f9;
+  border-left: 3px solid var(--cyan);
+  padding: 14px;
+}
+.purpose-question > .lucide {
+  margin-top: 3px;
+  color: var(--cyan);
+}
+.purpose-question p {
+  margin: 0;
+}
+.purpose-question strong {
+  display: block;
+  margin-bottom: 3px;
+}
+.purpose-route {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.purpose-route a {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) 16px;
+  gap: 9px;
+  align-items: start;
+  padding: 12px 4px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.purpose-route a:hover {
+  background: #f6f3fa;
+  text-decoration: none;
+}
+.purpose-route a:focus-visible {
+  outline-offset: -2px;
+}
+.purpose-route a > .lucide {
+  height: 15px;
+  width: 15px;
+  margin-top: 3px;
+  color: var(--purple);
+}
+.purpose-step {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pink);
+  padding-top: 2px;
+}
+.purpose-route strong,
+.purpose-route small {
+  display: block;
+}
+.purpose-route small {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 3px;
+}
+.purpose-limits {
+  margin-top: 22px;
+  padding-left: 12px;
+  border-left: 3px solid var(--pink);
+  font-size: 12px;
+}
+.purpose-limits p {
+  margin: 5px 0 0;
+}
+.purpose-body .purpose-provenance {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 18px 0 0;
+}
+.purpose-provenance a {
+  text-decoration: underline;
+}
+.purpose-settings {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 12px 18px;
+  min-height: 48px;
+  border-top: 1px solid var(--line);
+  border-radius: 0 0 7px 7px;
+  background: #f7f5fa;
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.purpose-settings label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.purpose-settings label .lucide {
+  width: 15px;
+  height: 15px;
+  color: var(--purple);
+}
+.purpose-settings input {
+  flex: 1;
+  min-width: 60px;
+  max-width: 160px;
+  accent-color: var(--purple);
+}
+.purpose-settings output {
+  width: 33px;
+  font-variant-numeric: tabular-nums;
+}
+.purpose-pin-state {
+  margin-left: auto;
+  color: var(--muted);
+}
+.purpose-resize {
+  position: absolute;
+  z-index: 2;
+  touch-action: none;
+}
+.purpose-resize[data-resize="n"],
+.purpose-resize[data-resize="s"] {
+  left: 12px;
+  right: 12px;
+  height: 8px;
+  cursor: ns-resize;
+}
+.purpose-resize[data-resize="n"] {
+  top: 0;
+}
+.purpose-resize[data-resize="s"] {
+  bottom: 0;
+}
+.purpose-resize[data-resize="e"],
+.purpose-resize[data-resize="w"] {
+  top: 12px;
+  bottom: 12px;
+  width: 8px;
+  cursor: ew-resize;
+}
+.purpose-resize[data-resize="e"] {
+  right: 0;
+}
+.purpose-resize[data-resize="w"] {
+  left: 0;
+}
+.purpose-resize[data-resize="ne"],
+.purpose-resize[data-resize="se"],
+.purpose-resize[data-resize="sw"],
+.purpose-resize[data-resize="nw"] {
+  width: 16px;
+  height: 16px;
+}
+.purpose-resize[data-resize="ne"] {
+  top: 0;
+  right: 0;
+  cursor: nesw-resize;
+}
+.purpose-resize[data-resize="se"] {
+  bottom: 0;
+  right: 0;
+  cursor: nwse-resize;
+}
+.purpose-resize[data-resize="sw"] {
+  bottom: 0;
+  left: 0;
+  cursor: nesw-resize;
+}
+.purpose-resize[data-resize="nw"] {
+  top: 0;
+  left: 0;
+  cursor: nwse-resize;
+}
+.purpose-resize[data-resize="se"]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  border-bottom: 2px solid #8b7a9e;
+  border-right: 2px solid #8b7a9e;
+}
+.purpose-window.maximised .purpose-resize {
+  display: none;
+}
+.purpose-window.maximised .purpose-titlebar {
+  cursor: default;
+}
+@media (max-width: 600px) {
+  .purpose-titlebar {
+    padding: 9px 8px 9px 12px;
+    gap: 5px;
+  }
+  .purpose-window-title h2 {
+    font-size: 13px;
+  }
+  .purpose-window-title > .lucide {
+    width: 16px;
+  }
+  .purpose-window-controls {
+    gap: 0;
+  }
+  .purpose-body {
+    padding: 18px 16px;
+  }
+  .purpose-body .purpose-intro {
+    font-size: 16px;
+  }
+  .purpose-settings {
+    padding: 11px 12px;
+    gap: 7px;
+  }
+}

@@ -10,10 +10,12 @@
     <meta name="theme-color" content="#593196" />
     <title>Decision Lab | Lucy Nowacki</title>
     <link rel="icon" href="assets/lucy.png" />
-    <link rel="stylesheet" href="assets/app.css?v=20261015-visual2" />
+    <link rel="stylesheet" href="assets/app.css?v=20261015-purpose1" />
+    <link rel="stylesheet" href="assets/purpose.css?v=20261015-purpose1" />
     <script defer src="assets/vendor/chart.umd.js"></script>
     <script defer src="assets/vendor/lucide.min.js"></script>
-    <script defer src="assets/app.js?v=20261015-visual2"></script>
+    <script defer src="assets/app.js?v=20261015-purpose1"></script>
+    <script defer src="assets/purpose.js?v=20261015-purpose1"></script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -116,6 +118,211 @@
         <span>Browser-local decisions · No Ekimetrics affiliation</span>
       </footer>
     </div>
+    <section
+      id="purpose-window"
+      class="purpose-window"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="purpose-title"
+      aria-describedby="purpose-intro"
+      hidden
+    >
+      <header
+        class="purpose-titlebar"
+        id="purpose-titlebar"
+        tabindex="0"
+        aria-label="Project Purpose window. Arrow keys move, Shift and arrow keys resize, Enter maximises or restores."
+        title="Drag to move; double-click to maximise or restore"
+      >
+        <div class="purpose-window-title">
+          <i data-lucide="compass"></i>
+          <h2 id="purpose-title">Project Purpose</h2>
+        </div>
+        <div class="purpose-window-controls">
+          <button
+            class="icon-button"
+            id="purpose-pin"
+            aria-label="Keep open while navigating"
+            aria-pressed="false"
+            title="Pin: keep open while navigating"
+          >
+            <i data-lucide="pin"></i>
+          </button>
+          <button
+            class="icon-button"
+            id="purpose-maximise"
+            aria-label="Maximise window"
+            aria-pressed="false"
+            title="Maximise window"
+          >
+            <i data-lucide="maximize-2"></i>
+          </button>
+          <button
+            class="icon-button"
+            id="purpose-close"
+            aria-label="Close Project Purpose"
+            title="Close Project Purpose"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </header>
+      <div
+        class="purpose-body"
+        tabindex="0"
+        aria-label="Project introduction and suggested route"
+      >
+        <p class="eyebrow">Marketing Decision Lab · Lucy Nowacki</p>
+        <p class="purpose-intro" id="purpose-intro">
+          A practical demonstration of how commercial data becomes a decision
+          that a team can question, test and review.
+        </p>
+        <div class="purpose-question">
+          <i data-lucide="target"></i>
+          <p>
+            <strong>The business question</strong>Where should a cab business
+            investigate growth, and what evidence is needed before changing its
+            marketing budget?
+          </p>
+        </div>
+        <h3>What the project brings together</h3>
+        <p>
+          Python analysis of 359,392 historical cab trips; customer and city
+          comparisons; forecasting checked against a simple baseline; and a
+          separate simulated marketing-budget experiment. A Jira-style board
+          connects the findings to owners, acceptance checks and human review.
+        </p>
+        <h3>A suggested route through the project</h3>
+        <ol class="purpose-route">
+          <li>
+            <a href="#overview"
+              ><span class="purpose-step">01</span
+              ><span
+                ><strong>Overview</strong
+                ><small
+                  >Filter company, city and year. Compare revenue with recorded
+                  gross contribution.</small
+                ></span
+              ><i data-lucide="arrow-up-right"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#customers"
+              ><span class="purpose-step">02</span
+              ><span
+                ><strong>Customer segments</strong
+                ><small
+                  >Explore repeat-trip behaviour and frame a retention
+                  experiment.</small
+                ></span
+              ><i data-lucide="arrow-up-right"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#forecast"
+              ><span class="purpose-step">03</span
+              ><span
+                ><strong>Model validation</strong
+                ><small
+                  >Compare forecasts on unseen months. See why the simpler
+                  baseline wins here.</small
+                ></span
+              ><i data-lucide="arrow-up-right"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#media"
+              ><span class="purpose-step">04</span
+              ><span
+                ><strong>Media lab</strong
+                ><small
+                  >Adjust a simulated budget and channel shares to explore
+                  diminishing returns.</small
+                ></span
+              ><i data-lucide="arrow-up-right"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#board"
+              ><span class="purpose-step">05</span
+              ><span
+                ><strong>Decision board</strong
+                ><small
+                  >Open a task, inspect its evidence and complete the review
+                  checks before marking it Done.</small
+                ></span
+              ><i data-lucide="arrow-up-right"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#evidence"
+              ><span class="purpose-step">06</span
+              ><span
+                ><strong>Evidence &amp; methods</strong
+                ><small
+                  >Check sources, assumptions and limitations. Use Export brief
+                  for a stakeholder summary.</small
+                ></span
+              ><i data-lucide="arrow-up-right"></i
+            ></a>
+          </li>
+        </ol>
+        <div class="purpose-limits">
+          <strong>How to read the results</strong>
+          <p>
+            CAB is a historical educational dataset in USD, not current client
+            data. The media experiment is entirely simulated in GBP. Neither
+            demonstrates real campaign lift. Review decisions are stored in this
+            browser.
+          </p>
+        </div>
+        <p class="purpose-provenance">
+          Developed from my
+          <a
+            href="https://github.com/LucyNowacki/CAB_EDA/blob/main/Cab_2.ipynb"
+            target="_blank"
+            rel="noopener noreferrer"
+            >CAB_EDA analysis</a
+          >
+          and
+          <a
+            href="https://lucynowacki.github.io/clearcost/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Clearcost</a
+          >
+          evidence-and-review approach. Independent portfolio work; no
+          Ekimetrics affiliation.
+        </p>
+      </div>
+      <footer class="purpose-settings">
+        <label for="purpose-opacity"><i data-lucide="blend"></i> Opacity</label>
+        <input
+          id="purpose-opacity"
+          type="range"
+          min="40"
+          max="100"
+          step="5"
+          value="100"
+          aria-label="Window opacity"
+        />
+        <output id="purpose-opacity-value" for="purpose-opacity">100%</output>
+        <span
+          class="purpose-pin-state"
+          id="purpose-pin-state"
+          aria-live="polite"
+          >Unpinned</span
+        >
+      </footer>
+      <span class="purpose-resize" data-resize="n" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="e" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="s" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="w" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="ne" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="se" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="sw" aria-hidden="true"></span>
+      <span class="purpose-resize" data-resize="nw" aria-hidden="true"></span>
+    </section>
     <dialog id="issue-dialog" aria-labelledby="issue-title"></dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>

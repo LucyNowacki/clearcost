@@ -332,7 +332,11 @@ function pageHead(eyebrow, title, subtitle, extra = "") {
     board: "columns-3",
     evidence: "files",
   };
-  return `<div class="page-heading"><div><p class="eyebrow"><i data-lucide="${pageIcons[currentView()]}"></i>${esc(eyebrow)}</p><h1>${esc(title)}</h1><p class="sub">${esc(subtitle)}</p></div>${extra}</div>`;
+  const purpose =
+    currentView() === "overview"
+      ? '<button class="button purpose-launch" id="purpose-open" aria-haspopup="dialog" aria-controls="purpose-window" aria-expanded="false"><i data-lucide="info"></i> Project Purpose</button>'
+      : "";
+  return `<div class="page-heading"><div><p class="eyebrow"><i data-lucide="${pageIcons[currentView()]}"></i>${esc(eyebrow)}</p><div class="heading-title-row"><h1>${esc(title)}</h1>${purpose}</div><p class="sub">${esc(subtitle)}</p></div>${extra}</div>`;
 }
 function badge(s) {
   return `<span class="badge ${s === "Review" ? "review" : s === "Done" ? "done" : s === "In progress" ? "progress" : s === "P1" ? "p1" : s === "P2" ? "p2" : ""}">${esc(s)}</span>`;
