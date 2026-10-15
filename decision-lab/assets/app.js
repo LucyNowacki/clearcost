@@ -32,11 +32,16 @@ const views = {
   evidence: "Evidence & methods",
 };
 const colours = {
-  "Pink Cab": "#c3328a",
-  "Yellow Cab": "#bd8b16",
-  search: "#593196",
-  social: "#c3328a",
-  video: "#1787aa",
+  "Pink Cab": "#e5008b",
+  "Yellow Cab": "#d49b16",
+  search: "#00b8d4",
+  social: "#15966e",
+  video: "#593196",
+  violet: "#593196",
+  plum: "#221331",
+  cyan: "#00b8d4",
+  ink: "#62596d",
+  grid: "#ebe8ef",
 };
 let data,
   charts = [],
@@ -226,6 +231,7 @@ function destroyCharts() {
 function chart(id, type, labels, datasets, extra = {}) {
   const canvas = $(`#${id}`);
   if (!canvas) return;
+  const fontFamily = getComputedStyle(canvas).fontFamily;
   charts.push(
     new Chart(canvas, {
       type,
@@ -234,20 +240,51 @@ function chart(id, type, labels, datasets, extra = {}) {
         responsive: true,
         maintainAspectRatio: false,
         animation: false,
+        color: colours.ink,
+        font: { family: fontFamily, size: 12 },
+        layout: { padding: { top: 8, right: 8 } },
+        interaction: { mode: "index", intersect: false, axis: "x" },
+        elements: {
+          line: { borderCapStyle: "round", borderJoinStyle: "round" },
+          point: {
+            hitRadius: 12,
+            hoverRadius: 5,
+            hoverBorderWidth: 2,
+            hoverBorderColor: "#ffffff",
+          },
+        },
         plugins: {
           legend: {
             display: true,
             position: "bottom",
             labels: {
               usePointStyle: true,
-              pointStyle: "rectRounded",
-              boxWidth: 7,
-              boxHeight: 7,
-              padding: 18,
-              font: { size: 10 },
+              boxWidth: 9,
+              boxHeight: 9,
+              padding: 20,
+              color: colours.ink,
+              font: { family: fontFamily, size: 12, weight: "500" },
             },
           },
-          tooltip: { mode: "index", intersect: false },
+          tooltip: {
+            mode: "index",
+            intersect: false,
+            backgroundColor: colours.plum,
+            titleColor: "#ffffff",
+            bodyColor: "#f5f0fa",
+            borderColor: "#594566",
+            borderWidth: 1,
+            cornerRadius: 8,
+            padding: 12,
+            titleMarginBottom: 8,
+            bodySpacing: 6,
+            caretPadding: 8,
+            usePointStyle: true,
+            boxWidth: 8,
+            boxHeight: 8,
+            titleFont: { family: fontFamily, size: 13, weight: "600" },
+            bodyFont: { family: fontFamily, size: 12 },
+          },
         },
         scales: {
           x: {
@@ -255,20 +292,29 @@ function chart(id, type, labels, datasets, extra = {}) {
             ticks: {
               maxTicksLimit: 8,
               maxRotation: 0,
-              font: { size: 10 },
-              color: "#80768b",
+              padding: 8,
+              font: { family: fontFamily, size: 11 },
+              color: colours.ink,
             },
             border: { display: false },
           },
           y: {
-            grid: { color: "#eeeaf2" },
+            beginAtZero:
+              type === "bar" ||
+              id === "performance-chart" ||
+              id === "response-chart",
+            grid: { color: colours.grid, drawTicks: false },
             border: { display: false },
             ticks: {
-              font: { size: 10 },
-              color: "#80768b",
+              padding: 10,
+              maxTicksLimit: 6,
+              font: { family: fontFamily, size: 11 },
+              color: colours.ink,
               callback: (v) =>
-                num(v >= 1000000 ? v / 1000000 : v >= 1000 ? v / 1000 : v) +
-                (v >= 1000000 ? "m" : v >= 1000 ? "k" : ""),
+                new Intl.NumberFormat("en-GB", {
+                  notation: "compact",
+                  maximumFractionDigits: 1,
+                }).format(v),
             },
           },
         },
@@ -278,7 +324,15 @@ function chart(id, type, labels, datasets, extra = {}) {
   );
 }
 function pageHead(eyebrow, title, subtitle, extra = "") {
-  return `<div class="page-heading"><div><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(title)}</h1><p class="sub">${esc(subtitle)}</p></div>${extra}</div>`;
+  const pageIcons = {
+    overview: "chart-no-axes-combined",
+    customers: "users-round",
+    forecast: "chart-spline",
+    media: "sliders-horizontal",
+    board: "columns-3",
+    evidence: "files",
+  };
+  return `<div class="page-heading"><div><p class="eyebrow"><i data-lucide="${pageIcons[currentView()]}"></i>${esc(eyebrow)}</p><h1>${esc(title)}</h1><p class="sub">${esc(subtitle)}</p></div>${extra}</div>`;
 }
 function badge(s) {
   return `<span class="badge ${s === "Review" ? "review" : s === "Done" ? "done" : s === "In progress" ? "progress" : s === "P1" ? "p1" : s === "P2" ? "p2" : ""}">${esc(s)}</span>`;
@@ -374,11 +428,13 @@ function overview() {
         ),
       ),
       borderColor: colours[company],
-      backgroundColor: colours[company],
-      borderWidth: 2,
+      backgroundColor: `${colours[company]}12`,
+      pointBackgroundColor: colours[company],
+      borderWidth: 2.5,
       pointRadius: 0,
-      pointHoverRadius: 4,
-      tension: 0.2,
+      pointHoverRadius: 5,
+      fill: "origin",
+      cubicInterpolationMode: "monotone",
     })),
   );
   $("#export-cities").onclick = () =>
@@ -391,11 +447,28 @@ function customers() {
       : [filters.company];
   const segments = data.cab.segments.filter((s) => chosen.includes(s.company));
   const labels = [...new Set(segments.map((s) => s.segment))];
+  const totalGroups = sum(segments, "customers");
+  const repeat = segments.filter((s) => s.segment !== "one-trip");
+  const totalContribution = sum(segments, "contribution");
+  const segmentNames = {
+    "one-trip": "One trip",
+    "2-5": "2–5 trips",
+    "6+": "6+ trips",
+  };
+  const customerSummary = `<div class="metrics customer-metrics" aria-label="Customer summary">${metric("Customer-company groups", num(totalGroups), "Across the selected companies", "users-round")}${metric("Repeat groups", pct(sum(repeat, "customers") / totalGroups), "Two or more recorded trips", "repeat-2")}${metric("Repeat contribution", pct(sum(repeat, "contribution") / totalContribution), "Share of recorded gross contribution", "chart-no-axes-column-increasing", true)}${metric("Contribution / group", money(totalContribution / totalGroups), "Recorded revenue less trip cost · USD", "banknote")}</div>`;
+  const segmentMix = `<div class="segment-mix" aria-label="Trip frequency composition">${labels
+    .map((label, index) => {
+      const group = segments.filter((s) => s.segment === label);
+      const share = sum(group, "customers") / totalGroups;
+      return `<div class="segment-profile segment-${index}"><div class="segment-profile-head"><span class="segment-dot"></span><h3>${esc(segmentNames[label] || label)}</h3><strong>${pct(share)}</strong></div><div class="mix-track" role="img" aria-label="${esc(segmentNames[label] || label)}: ${pct(share)} of customer-company groups"><span style="width:${share * 100}%"></span></div><div class="segment-profile-foot"><span>${num(sum(group, "customers"))} groups</span><span>${pct(sum(group, "contribution") / totalContribution)} of contribution</span></div></div>`;
+    })
+    .join("")}</div>`;
   main.innerHTML =
     pageHead(
       "Cab growth / Customer analytics",
       "Understand repeat behaviour",
       "Trip-frequency groups across the full recorded observation window.",
+      '<a class="button" href="#board"><i data-lucide="flask-conical"></i> Experiment plan <i data-lucide="arrow-up-right"></i></a>',
     ) +
     `<div class="toolbar">${field("Company", "company-filter", ["All companies", ...data.cab.companies.map((c) => c.company)], filters.company)}<span class="scope">All cities · ${esc(data.meta.date_start)} to ${esc(data.meta.date_end)}</span></div><div class="callout"><i data-lucide="info"></i><p>These are descriptive customer-company groups. A customer using both companies appears in both. Trip counts do not measure campaign response, churn or lifetime value.</p></div><div class="two-cols"><section class="section"><div class="section-head"><h2>Customer groups by trip frequency</h2><span class="pill">No demographic targeting</span></div><div class="section-body"><div class="chart-box tall"><canvas id="segment-chart" role="img" aria-label="Customers in each trip frequency segment"></canvas></div></div></section><section class="section"><div class="section-head"><h2>Contribution per customer-company</h2></div><div class="section-body"><div class="chart-box tall"><canvas id="value-chart" role="img" aria-label="Recorded contribution per customer by trip frequency"></canvas></div></div></section></div><section class="section spaced"><div class="section-head"><h2>Segment evidence</h2><button class="button small" id="export-segments"><i data-lucide="download"></i> CSV</button></div><div class="table-scroll"><table><thead><tr><th>Company</th><th>Trips per customer</th><th class="num">Customer-company groups</th><th class="num">Trips</th><th class="num">Revenue (USD)</th><th class="num">Contribution (USD)</th></tr></thead><tbody>${segments.map((s) => `<tr><td>${esc(s.company)}</td><td>${esc(s.segment)}</td><td class="num">${num(s.customers)}</td><td class="num">${num(s.trips)}</td><td class="num">${money(s.revenue)}</td><td class="num">${money(s.contribution)}</td></tr>`).join("")}</tbody></table></div></section><div class="callout spaced"><i data-lucide="flask-conical"></i><p><strong>Next experiment:</strong> define an eligible cohort and randomise an offer against a holdout. Agree an incremental contribution outcome and a minimum observation window before launch. <a href="#board">EKI-103</a></p></div>`;
   chart(
@@ -411,7 +484,10 @@ function customers() {
         ),
       ),
       backgroundColor: colours[c],
-      borderRadius: 3,
+      hoverBackgroundColor: `${colours[c]}cc`,
+      borderRadius: 5,
+      categoryPercentage: 0.7,
+      barPercentage: 0.85,
       maxBarThickness: 42,
     })),
   );
@@ -426,12 +502,27 @@ function customers() {
         return s?.customers ? s.contribution / s.customers : 0;
       }),
       backgroundColor: colours[c],
-      borderRadius: 3,
+      hoverBackgroundColor: `${colours[c]}cc`,
+      borderRadius: 5,
+      categoryPercentage: 0.7,
+      barPercentage: 0.85,
       maxBarThickness: 42,
     })),
   );
   $("#export-segments").onclick = () =>
     downloadCSV(segments, "customer-segments.csv");
+  $(".toolbar").insertAdjacentHTML("afterend", customerSummary + segmentMix);
+  const note = $(".callout");
+  note.classList.add("customer-definition");
+  $(".segment-mix").after(note);
+  $$("tbody tr", main).forEach((row, index) => {
+    const company = segments[index].company;
+    row.cells[0].innerHTML = `<span class="company-label ${company === "Yellow Cab" ? "yellow" : ""}"><i aria-hidden="true"></i>${esc(company)}</span>`;
+    row.cells[1].textContent =
+      segmentNames[segments[index].segment] || segments[index].segment;
+    if (index > 0 && segments[index - 1].company !== company)
+      row.classList.add("company-start");
+  });
 }
 function forecast() {
   const company =
@@ -460,19 +551,24 @@ function forecast() {
       {
         label: "Observed revenue",
         data: points.map((p) => p.actual),
-        borderColor: "#262431",
-        backgroundColor: "#262431",
-        borderWidth: 2,
-        pointRadius: 3,
+        borderColor: colours.plum,
+        backgroundColor: colours.plum,
+        borderWidth: 3,
+        pointRadius: 4,
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 2,
       },
       ...models.map((m, i) => ({
         label: m.model,
         data: m.points.map((p) => p.predicted),
-        borderColor: i ? "#1787aa" : "#593196",
-        backgroundColor: i ? "#1787aa" : "#593196",
-        borderDash: i ? [5, 4] : [],
-        borderWidth: 2,
-        pointRadius: 3,
+        borderColor: i ? colours.cyan : colours.violet,
+        backgroundColor: i ? colours.cyan : colours.violet,
+        borderDash: i ? [2, 4] : [6, 4],
+        borderWidth: 2.5,
+        pointRadius: 3.5,
+        pointStyle: i ? "triangle" : "rectRot",
+        pointBorderColor: "#ffffff",
+        pointBorderWidth: 1.5,
       })),
     ],
   );
@@ -508,8 +604,8 @@ function media() {
       borderColor: colours[c.id],
       backgroundColor: colours[c.id],
       pointRadius: 0,
-      borderWidth: 2,
-      tension: 0.2,
+      borderWidth: 2.5,
+      cubicInterpolationMode: "monotone",
     })),
   );
   chart(
@@ -520,18 +616,18 @@ function media() {
       {
         label: "Simulated revenue",
         data: m.weekly.map((r) => r.revenue),
-        borderColor: "#a59bb0",
-        backgroundColor: "#a59bb0",
+        borderColor: "#778692",
+        backgroundColor: "#778692",
         pointRadius: 0,
-        borderWidth: 1.2,
+        borderWidth: 1.8,
       },
       {
         label: "Model prediction (holdout)",
         data: m.weekly.map((r) => (r.split === "test" ? r.predicted : null)),
-        borderColor: "#593196",
-        backgroundColor: "#593196",
+        borderColor: colours.cyan,
+        backgroundColor: colours.cyan,
         pointRadius: 0,
-        borderWidth: 2,
+        borderWidth: 3,
       },
     ],
   );
@@ -627,7 +723,7 @@ function updateScenario() {
   $("#extrapolation-note").classList.toggle("error", outside.length > 0);
 }
 function issueCard(i) {
-  return `<button class="issue" data-issue="${esc(i.id)}"><div class="issue-heading">${esc(i.title)}</div><span class="issue-tag">${esc(i.area)}</span><div class="issue-footer"><span class="issue-type"><i data-lucide="check"></i></span>${esc(i.id)} ${badge(i.priority)}<span class="issue-owner" title="${esc(i.owner)}">${esc(
+  return `<button class="issue" data-issue="${esc(i.id)}"><div class="issue-heading">${esc(i.title)}</div><span class="issue-tag">${esc(i.area)}</span><div class="issue-check-progress"><i data-lucide="list-checks"></i>${i.checks.filter(Boolean).length}/${i.criteria.length} acceptance checks</div><div class="issue-footer"><span class="issue-type"><i data-lucide="check"></i></span>${esc(i.id)} ${badge(i.priority)}<span class="issue-owner" title="${esc(i.owner)}">${esc(
     i.owner
       .split(" ")
       .map((s) => s[0])
@@ -668,7 +764,7 @@ function boardColumns() {
   $("#board-columns").innerHTML = statuses
     .map((status) => {
       const issues = matches.filter((i) => i.status === status);
-      return `<section class="column" aria-label="${status}"><div class="column-title">${status}<span>${issues.length}</span></div>${issues.map(issueCard).join("") || '<div class="empty">No tasks</div>'}</section>`;
+      return `<section class="column" data-status="${esc(status)}" aria-label="${status}"><div class="column-title"><i class="column-dot"></i>${status}<span>${issues.length}</span></div>${issues.map(issueCard).join("") || '<div class="empty"><i data-lucide="circle-check"></i><span>No tasks</span></div>'}</section>`;
     })
     .join("");
   $("#sprint-progress").textContent =
@@ -890,6 +986,7 @@ function render() {
   if (!data) return;
   destroyCharts();
   const v = currentView();
+  main.dataset.view = v;
   $("#crumb").textContent = views[v];
   $$("#nav a").forEach((a) => {
     a.classList.toggle("active", a.dataset.view === v);
